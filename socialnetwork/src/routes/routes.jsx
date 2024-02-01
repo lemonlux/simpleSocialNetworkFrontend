@@ -1,4 +1,9 @@
+import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
+import { Home } from "../pages/Home";
+import { Register } from "../pages/Register";
+import { LogedOut } from "../pages/LogedOut";
+import { Login } from "../pages/Login";
 
 
 export const router = createBrowserRouter ([
@@ -9,7 +14,7 @@ export const router = createBrowserRouter ([
         children: [
               {
                 path: "/",
-                // element: <Feed />,
+                element: <Home/>,
               },
               {
                 path: "/feed",
@@ -61,16 +66,21 @@ export const router = createBrowserRouter ([
               },
               {
                 path: "*",
-                element: <NotFound />,
+                // element: <NotFound />,
               },
         ],
     },
     {
-        path: "/signup",
-        // element: <Register />,
+      path:"/log",
+      element: <LogedOut/>,
+      children: [
+    {
+        path: "/log/signup",
+        element: <Register />,
       },
       {
-        path: "/login",
-        // element: <Login />,
-      },
+        path: "/log/login",
+        element: <Login />,
+      }
+    ]}
 ]);

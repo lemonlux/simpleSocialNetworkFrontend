@@ -1,0 +1,192 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;900&family=Work+Sans:wght@600&display=swap');
+
+.allForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+   
+  }
+a{
+  color: #2094e3;
+}
+  .formTitle{
+    padding: 20px;
+    gap: 1rem;
+    margin-bottom: 10px;
+    border-radius: 10px 10px 0px 0px;
+    width: 100%;
+    
+  }
+  .form{
+    display: flex;
+    flex-direction: column;
+    min-width: 350px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+flex-direction: column;
+    width: 40vw;
+    gap:4px;
+    
+  }
+
+  .formMain {
+    border-radius: 8px;
+display: flex;
+justify-content: start;
+align-items: start;
+margin: 30px 0 20px 0 ;
+    padding: 10px 10px 30px 10px;
+    text-align: center;
+    flex-direction: column;
+    width: 40%;
+  }
+
+
+  .inputPlaceHolderForm{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .customPlaceholder{
+
+    font-size: 16px;
+    font-weight: 400;
+  }
+  
+  .radioMUI{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .inputForm {
+    width: 20vw;
+    padding: 10px;
+    margin: 0 0 10px 0;
+    border: #1C9BEF;
+    border-radius: 4px;
+    width: 300px;
+
+  }
+
+  .btnNormal{
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #1C9BEF;
+    color: white;
+    padding: 4px;
+    border-radius: 22px;
+    border: 1px solid  #1C9BEF;
+    width: 300px;
+    height: 45px;
+    
+  }
+
+  .btnNormal:hover{
+    background-color: #2094e3
+  }
+  
+  .interest input[type="radio"] {
+    display: none;
+    margin: 20px;
+    
+  }
+  .interest{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+ 
+  }
+  .preferredfoot input{
+    display: none;
+   
+  }
+  .preferredfoot {
+    margin:30px ;
+   
+  }
+
+  /* Estilo cuando el botón de interés está seleccionado */
+  .interest input[type="radio"]:checked + .labelRadio {
+    background-color: #1C9BEF;
+    color: #fff;
+    font-weight: 600;
+    border: 2px solid #1C9BEF;
+  }
+
+
+  .gender {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .gender input[type="radio"] {
+    display: none;
+  }
+
+  .labelRadio {
+    cursor: pointer;
+    padding: 10px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 4px;
+    width: 12vw;
+    max-width: 120px;
+    min-width: 100px;
+    border: 1px solid white;
+    
+    text-align: center;
+    
+  }
+ 
+  
+  /* Estilo cuando el botón está seleccionado */
+  .gender input[type="radio"]:checked + .labelRadio,.interested input[type="radio"]:checked + .labelRadio {
+    background-color:var(--color-boton);
+    color: #fff;
+    border: 1px solid #2f7a67;
+  }
+  .preferredfoot input[type="radio"]:checked + .labelRadio,.interested input[type="radio"]:checked + .labelRadio {
+    background-color:var(--color-boton);
+    color: #fff;
+    border: 1px solid #2f7a67;
+  }
+  
+  
+  .bottomText {
+    margin-top: 20px;
+    color: var(--color-text-boton);
+  }
+  
+  .anchorCustom {
+    color: var(--color-enlace);
+
+  }
+  
+  .terms{
+    margin: 0 0 1rem 0;
+  }
+
+  @media (max-width: 500px) {
+    .formMain {
+      width: 80vw;
+      min-width: 100%;
+    }
+
+    .profileSettingsContainerDiv.profileSettingsFormDiv {
+      margin-bottom: 0;
+  }
+
+    .allForm {
+      margin-bottom: 1rem;
+    }
+  }
