@@ -5,6 +5,14 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { loginUser } from "../services/user.service";
 import { useErrorLogin } from "../hooks/useErrorLogin";
 import { useAuth } from "../context/authContext";
+import { FlexDir } from "../components/styledComponents/FlexDir";
+import { Form } from "../components/styledComponents/Form";
+import { H1Form } from "../components/styledComponents/H1Form";
+import { LabelAndInput } from "../components/styledComponents/LabelAndInput";
+import { ButtonPrimary } from "../components/styledComponents/ButtonPrimary";
+import { Small } from "../components/styledComponents/Small";
+import { Anchor } from "../components/styledComponents/Anchor";
+import { H2Form } from "../components/styledComponents/H2Form";
 
 
 export const Login = () => {
@@ -38,60 +46,65 @@ export const Login = () => {
 
   return (
     <>
-      <div className="allForm register">
-      <div className="formMain">
-      <div className="formTitle">
-          <h1 className="titleFormH1">LOG IN</h1>
-          </div>
-          <form className="form" onSubmit={handleSubmit(formSubmit)}>
-          <div className="inputPlaceHolderForm">
-          <label className="placeHolder" htmlFor="email">
-            Email
-          </label>
-          <input
-            className="inputForm"
-            type="email"
-            id="userEmail"
-            name="userEmail"
-            autoComplete="false"
-            {...register("email", { required: true })}
-          />
-          <label className="placeHolder" htmlFor="password">
-            Password
-          </label>
-          <input
-            className="inputForm"
-            type="password"
-            id="password"
-            name="password"
-            autoComplete="false"
-            {...register("password", { required: true })}
-          />
 
-</div>
+<Form  width={"40vw"}  height={"100vh"} onSubmit={handleSubmit(formSubmit)}>
+<FlexDir direction={"column" } gap={"16px"} width="100%">
+<FlexDir direction={"column"} gap={"2px"} width="100%" alignItems="start">
+        <H1Form margin={"8px 0 0 0"}>Happening now</H1Form>
+    <H2Form >Discover</H2Form>
+   </FlexDir>
+        <FlexDir margin={"0 0 8px 0"}></FlexDir>
 
-          <div className="btnContainer">
-          <button className="btnNormal" type="submit"
-              disabled={sent} >
- {sent ? "Loading..." : "Login"}
-</button>
-          </div>
-          <p className="loginParagraph changePassword">
-            
-              Have you forgotten the password?{" "}
-              <Link to="/forgotPassword" className="anchorCustom">
-                Change password
-              </Link>
-            
-          </p>
-        </form>
-        <div className="footerForm">
-          <p className="parrafoLogin">
-            Are you not registered? <Link to="/log/signup">Register Here</Link>
-          </p>
-        </div>
-      </div>
-      </div>
+  <LabelAndInput>
+  <label htmlFor="email">
+  Email
+</label>
+<input
+
+  type="email"
+  id="userEmail"
+  name="userEmail"
+  autoComplete="false"
+  {...register("email", { required: true })}
+/>
+  </LabelAndInput>
+  
+
+  <LabelAndInput>
+<label htmlFor="password">
+  Password
+</label>
+<input
+
+  type="password"
+  id="password"
+  name="password"
+  autoComplete="false"
+  {...register("password", { required: true })}
+/>
+</LabelAndInput>
+
+
+
+
+
+<ButtonPrimary width={"70%"} type="submit" margin={"1rem 0 0 0"}
+          disabled={sent} variant={ sent ? "loading" : "normal"}>
+{sent ? "Loading..." : "Login"}
+</ButtonPrimary>
+
+
+    <FlexDir margin={"0 0 1rem"}>
+
+Are you not registered? <Link to="/log/signup"><Anchor>Register Here</Anchor></Link>
+
+</FlexDir>
+
+</FlexDir>
+
+
+</Form>
+
     </>
   );
 };

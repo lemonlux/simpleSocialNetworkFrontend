@@ -1,15 +1,21 @@
-import './App.css'
-import { Footer } from './components/Footer'
-import { Header } from './components/Header'
+import { ThemeProvider } from '@emotion/react';
+
 import { Outlet } from "react-router-dom";
+import { GlobalStyles } from './styles/GlobalStyles';
+import { createTheme } from './styles/utils';
+import { themeDark } from './styles/theme';
 
 const App = () => {
 
   return (
     <>
-      <Header/>
+     <ThemeProvider
+        theme={createTheme(themeDark)}
+      >
+
+    <GlobalStyles/>
       <Outlet/>
-      <Footer/>
+     </ThemeProvider>
     </>
   )
 }

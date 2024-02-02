@@ -15,72 +15,75 @@ export const router = createBrowserRouter ([
               {
                 path: "/",
                 element: <Home/>,
+                children: [
+                  {
+                    path: "/feed",
+                    //  element: <Feed />,
+                  },
+                  {
+                    path: "/feed/:id",
+                    // element: 
+                    // // (<Protected>
+                    //   <PostById/>
+                    // // </Protected>),
+                  },
+                  {
+                    path: "/createPost",
+                    // element: 
+                    // (<Protected>
+                    // <CreatePost />
+                    // </Protected>),
+                  },
+                //   {
+                //     path: "/updatePost/:id",
+                //     element: 
+                //     (<Protected>
+                //       <UpdatePost />
+                //     </Protected>),
+                //   },
+                //   {
+                //     path: "/messages",
+                //     element: 
+                //     (<Protected>
+                //       <Chat />
+                //       </Protected>)
+                //   },
+                  {
+                    path: "/user/:username",
+                    // element: (
+                    //   <Protected>
+                    //     <User />
+                    //   </Protected>
+                    // ),
+                  },
+                  {
+                    path: "/profile",
+                    // element: 
+                    // (<Protected>
+                    //   <Profile />
+                    //   </Protected>)
+                  
+                  },
+                  {
+                    path: "*",
+                    // element: <NotFound />,
+                  },
+                ]
               },
               {
-                path: "/feed",
-                //  element: <Feed />,
-              },
+                path:"/log",
+                element: <LogedOut/>,
+                children: [
               {
-                path: "/feed/:id",
-                // element: 
-                // // (<Protected>
-                //   <PostById/>
-                // // </Protected>),
-              },
-              {
-                path: "/createPost",
-                // element: 
-                // (<Protected>
-                // <CreatePost />
-                // </Protected>),
-              },
-            //   {
-            //     path: "/updatePost/:id",
-            //     element: 
-            //     (<Protected>
-            //       <UpdatePost />
-            //     </Protected>),
-            //   },
-            //   {
-            //     path: "/messages",
-            //     element: 
-            //     (<Protected>
-            //       <Chat />
-            //       </Protected>)
-            //   },
-              {
-                path: "/user/:username",
-                // element: (
-                //   <Protected>
-                //     <User />
-                //   </Protected>
-                // ),
-              },
-              {
-                path: "/profile",
-                // element: 
-                // (<Protected>
-                //   <Profile />
-                //   </Protected>)
-              
-              },
-              {
-                path: "*",
-                // element: <NotFound />,
-              },
+                  path: "/log/signup",
+                  element: <Register />,
+                },
+                {
+                  path: "/log/login",
+                  element: <Login />,
+                }
+              ]} 
         ],
     },
-    {
-      path:"/log",
-      element: <LogedOut/>,
-      children: [
-    {
-        path: "/log/signup",
-        element: <Register />,
-      },
-      {
-        path: "/log/login",
-        element: <Login />,
-      }
-    ]}
+
 ]);

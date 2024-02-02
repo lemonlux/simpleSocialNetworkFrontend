@@ -1,4 +1,4 @@
-import "./Register.css";
+
 
 import { useForm } from "react-hook-form";
 import { Link, Navigate } from "react-router-dom";
@@ -10,13 +10,15 @@ import { useErrorRegister } from "../hooks/useErrorRegister";
 
 
 import * as React from 'react';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import TextField from '@mui/material/TextField';
-
-import Button from '@mui/material/Button';
+import { FlexDir } from "../components/styledComponents/FlexDir";
+import { H1Form } from "../components/styledComponents/H1Form";
+import { ButtonPrimary } from "../components/styledComponents/ButtonPrimary";
+import { Small } from "../components/styledComponents/Small";
+import { LabelAndInput } from "../components/styledComponents/LabelAndInput";
+import { RadioInput } from "../components/styledComponents/RadioInput";
+import { Anchor } from "../components/styledComponents/Anchor";
+import { Form } from "../components/styledComponents/Form";
+import { H2Form } from "../components/styledComponents/H2Form";
 
 
 
@@ -69,136 +71,146 @@ useEffect(() => {
 
   return (
 
-      <div className="formMain">
-        <div className="formTitle">
-        <h1 >Happening now</h1>
-        <h2>Join today</h2>
-        </div>
-        <form className="form" onSubmit={handleSubmit(formSubmit)}>
-          <div className="inputPlaceHolderForm">
 
-          <label htmlFor="username" className="customPlaceholder">
-              Username
+
+    <Form
+      width={"40vw"}
+      height={"100vh"}
+      onSubmit={handleSubmit(formSubmit)}
+    >
+      <FlexDir direction={"column"} gap={"2px"} width="100%">
+      <FlexDir direction={"column"} gap={"2px"} width="100%" alignItems="start">
+        <H1Form margin={"8px 0 0 0"}>Happening now</H1Form>
+    <H2Form >Join today</H2Form>
+   </FlexDir>
+        <FlexDir margin={"0 0 8px 0"}></FlexDir>
+
+        <LabelAndInput>
+          Username
+          <input
+            type="text"
+            name="username"
+            autoComplete="false"
+            {...register("username", { required: true })}
+          />
+        </LabelAndInput>
+
+        <LabelAndInput>
+          E-mail
+          <input
+            type="email"
+            id="email"
+            name="email"
+            autoComplete="false"
+            {...register("email", { required: true })}
+          />
+        </LabelAndInput>
+
+        <LabelAndInput>
+          Password
+          <input
+            type="password"
+            id="password"
+            name="password"
+            autoComplete="false"
+            {...register("password", { required: true })}
+          />
+        </LabelAndInput>
+
+        <LabelAndInput alignItems={"center"}>
+          <RadioInput>
+            <input
+              type="radio"
+              name="gender"
+              id="woman"
+              value="female"
+              {...register("gender", { required: true })}
+            />
+            <label htmlFor="woman" className="labelRadio">
+              Woman
             </label>
             <input
-              className="inputForm"
-              type="text"
-              id="usernname"
-              name="username"
-              autoComplete="false"
-              {...register("username", { required: true })}
+              type="radio"
+              name="gender"
+              id="man"
+              value="male"
+              {...register("gender", { required: true })}
             />
-           
-  
-          <label htmlFor="email" className="customPlaceholder">
-              E-mail
+            <label htmlFor="man" className="labelRadio">
+              Man
             </label>
             <input
-              className="inputForm"
-              type="email"
-              id="email"
-              name="email"
-              autoComplete="false"
-              {...register("email", { required: true })}
+              type="radio"
+              name="gender"
+              id="other"
+              value="nonbinary"
+              {...register("gender", { required: true })}
             />
-
-          <label htmlFor="password" className="customPlaceholder">
-              Password
+            <label htmlFor="other" className="labelRadio">
+              Other
+            </label>
+          </RadioInput>
+         
+        </LabelAndInput>
+        <LabelAndInput alignItems={"center"}>
+          Account Privacy
+        <RadioInput>
+        <input
+              type="radio"
+              name="private"
+              id="private"
+              value="private"
+              {...register("privacy", { required: true })}
+            />
+            <label htmlFor="private" className="labelRadio">
+              Private
             </label>
             <input
-              className="inputForm"
-              type="password"
-              id="password"
-              name="password"
-              autoComplete="false"
-              {...register("password", { required: true })}
+              type="radio"
+              name="public"
+              id="public"
+              value="public"
+              {...register("privacy", { required: true })}
             />
-            
-  
-          </div>
+            <label htmlFor="public" className="labelRadio">
+             Public
+            </label>
+          </RadioInput>
+        </LabelAndInput>
+        <UploadFile />
 
-           <p className="customPlaceholder">Gender</p>
-            <div className="formGroup">
-            <div className="interest">
-              <input
-                type="radio"
-                name="interest"
-                id="female"
-                value="female"
-                {...register("gender", {required: true})}
-              />
-              <label htmlFor="female" className="labelRadio">
-                Woman
-              </label>
+        <ButtonPrimary
+          width={"70%"}
+          type="submit"
+          disabled={sent}
+          variant={sent ? "loading" : "normal"}
+        >
+          <div type="submit"></div>
+          {sent ? "Loading..." : "Sign up"}
+        </ButtonPrimary>
+        <FlexDir margin={"0"}>
+          Already a member?
+          <Link to="/log/login">
+            <Anchor>Login Here</Anchor>
+          </Link>
+        </FlexDir>
 
-              <input
-                type="radio"
-                name="gender"
-                id="male"
-                value="male"
-                {...register("gender", {required: true})}
-              />
-              <label htmlFor="male" className="labelRadio ">
-                Men
-              </label>
-              <input
-                type="radio"
-                name="interest"
-                id="nonbinary"
-                value="nonbinary"
-                {...register("gender", {required: true})}
-              />
-              <label htmlFor="nonbinary" className="labelRadio ">
-                Nonbinary
-              </label>
-            </div>
-            </div>
-            <p className="customPlaceholder">Account privacy</p>
-    <div className="radioMUI">
-            <FormControl>
-      <RadioGroup
-        row
-        aria-labelledby="demo-row-radio-buttons-group-label"
-        name="row-radio-buttons-group"
-        style= {{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}
-      >
-        <FormControlLabel value="private" control={<Radio />} label="private" {...register("privacy", {required: true})}/>
-        <FormControlLabel value="public" control={<Radio />} label="public" {...register("privacy", {required: true})} />
-      </RadioGroup>
-    </FormControl>
+        <FlexDir>
+          <Small>
+            By clicking the Sign Up button, you agree to our <br />
+            <Link to="/terms" className="anchorCustom">
+              Terms & Conditions
+            </Link>{" "}
+            and{" "}
+            <Link to="/privacy" className="anchorCustom">
+              Privacy Policy
+            </Link>
+            .
+          </Small>
+        </FlexDir>
+      </FlexDir>
+    </Form>
 
-    </div>
-
-          
-          <UploadFile />
-          <div className="btnContainer">
-          <button className="btnNormal" type="submit"
-              disabled={sent} >
- {sent ? "Loading..." : "Sing up"}
-</button>
-
-            <div className="loginForm">
-        <p className="loginParagraph">
-          Already a member? <Link to="/log/login">Login Here</Link>
-        </p>
-      </div>
-          </div>
-
-          <p className="bottomText">
-            <small className="terms">
-              By clicking the Sign Up button, you agree to our{" "} <br />
-              <Link to="/terms" className="anchorCustom">
-                Terms & Conditions
-              </Link>{" "}
-              and{" "}
-              <Link to="/privacy" className="anchorCustom">
-                Privacy Policy
-              </Link>
-              .
-            </small>
-          </p>
-        </form>
-      </div>
 
   );
 };

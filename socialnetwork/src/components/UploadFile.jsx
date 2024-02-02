@@ -88,7 +88,7 @@ export const UploadFile = ({ registerForm, multipleUpload=false }) => {
   }, []);
 
   return (
-    <div id="file-upload-form" className="uploader">
+<>
       <input
         id="file-upload"
         type="file"
@@ -114,6 +114,6 @@ export const UploadFile = ({ registerForm, multipleUpload=false }) => {
           <div id="messages"></div>
         </div>
       </label>
-    </div>
+      </>
   );
 };
