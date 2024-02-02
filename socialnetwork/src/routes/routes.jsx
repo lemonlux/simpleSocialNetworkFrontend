@@ -4,6 +4,7 @@ import { Home } from "../pages/Home";
 import { Register } from "../pages/Register";
 import { LogedOut } from "../pages/LogedOut";
 import { Login } from "../pages/Login";
+import { Feed } from "../pages/Feed";
 
 
 export const router = createBrowserRouter ([
@@ -18,7 +19,7 @@ export const router = createBrowserRouter ([
                 children: [
                   {
                     path: "/feed",
-                    //  element: <Feed />,
+                     element: <Feed />,
                   },
                   {
                     path: "/feed/:id",

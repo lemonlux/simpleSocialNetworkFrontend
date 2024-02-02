@@ -19,6 +19,9 @@ export const GlobalStyles = () => {
             padding: 0,
             margin: 0,
           },
+          ".navLink": {
+            textDecoration: "none",
+          },
         }
         
       ]}

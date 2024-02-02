@@ -1,7 +1,8 @@
-import "./Footer.css"
+import { FooterElement } from "./styledComponents/Footer.element"
+
 
 export const Footer = () => {
   return (
-    <footer>Footer</footer>
+    <FooterElement>footer</FooterElement>
   )
 }

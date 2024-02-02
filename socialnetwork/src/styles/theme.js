@@ -17,19 +17,20 @@ export const ZINDEX = {
 
 const PALETTE_COLOR_DARK = {
   background:  "#141417",
+  lighterBackground: "#252529",
   color:  "#f0f0f2",
-  diminishing: "#bebec2",
+  diminishing: "#2E3336",
   secondColor: "#1C9BEF",
   darkerColor: "#2094e3",
   button:  "#fff",
-  border:  "#2f2e33",
+  border:  "#2E3336",
 };
 
 export const themeDark = {
   palette: {
     background: {
       main: PALETTE_COLOR_DARK.background,
-      light: PALETTE_COLOR_DARK.background,
+      light: PALETTE_COLOR_DARK.lighterBackground,
       dark: PALETTE_COLOR_DARK.background,
     },
     color: {

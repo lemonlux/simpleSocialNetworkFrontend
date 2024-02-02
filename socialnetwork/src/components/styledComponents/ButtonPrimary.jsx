@@ -51,6 +51,7 @@ export const ButtonPrimary = ({
     <ButtonStyles
       theme={theme}
       width={width}
+      height={height}
       variant={variant}
       onClick={onClick}
       margin={margin}
