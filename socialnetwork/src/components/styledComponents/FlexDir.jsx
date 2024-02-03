@@ -12,6 +12,7 @@ const FlexStyle = styled.div`
   margin: ${({ margin}) => (margin ? margin : "4px")};
   padding: ${({ padding }) => (padding ? padding : "0")};
   height: ${({ height }) => (height ? height : "auto")};
+  min-height: ${({ minHeight }) => (minHeight && minHeight)};
   width: ${({ width }) => (width ? width : "auto")};
   position: ${({position})=> position ? position : null };
 
@@ -24,6 +25,7 @@ export const FlexDir = ({
   gap,
   height,
   width,
+  minHeight,
   margin,
   padding,
   wrap,
@@ -38,6 +40,7 @@ export const FlexDir = ({
     <FlexStyle
       wrap={wrap}
       theme={theme}
+      minHeight={minHeight}
       position={position}
       padding={padding}
       width={width}

@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import "./Login.css";
 import { useEffect, useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { loginUser } from "../services/user.service";
