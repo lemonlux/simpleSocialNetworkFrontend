@@ -36,13 +36,7 @@ export const Header = () => {
       <TitleIcon onClick={() => setPage("saved")}  variant={ page == "saved" && "focus"}>
         {" "}
         {page ==  "saved" ? <i className="bi bi-bookmark-fill"></i> :<i className="bi bi-bookmark"></i>}
-         <h2>Saved</h2>
-      </TitleIcon>
-      </NavLink>
-      <NavLink className="navLink" to="/settings">
-      <TitleIcon onClick={() => setPage("settings")}  variant={ page == "settings" && "focus"}>
-      {page ==  "settings" ? <i className="bi bi-gear-fill"></i> : <i className="bi bi-gear"></i> }
-        <h2>Settings</h2>
+         <h2>Bookmarks</h2>
       </TitleIcon>
       </NavLink>
       <NavLink className="navLink" to="/feed">
@@ -51,6 +45,13 @@ export const Header = () => {
         <h2>Profile</h2>
       </TitleIcon>
       </NavLink>
+      <NavLink className="navLink" to="/settings">
+      <TitleIcon onClick={() => setPage("settings")}  variant={ page == "settings" && "focus"}>
+      {page ==  "settings" ? <i className="bi bi-gear-fill"></i> : <i className="bi bi-gear"></i> }
+        <h2>Settings</h2>
+      </TitleIcon>
+      </NavLink>
+    
       <NavLink className="navLink" to="/log/login">
       <TitleIcon >
         {" "}

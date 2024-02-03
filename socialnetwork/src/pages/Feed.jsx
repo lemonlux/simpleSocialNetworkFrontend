@@ -13,6 +13,7 @@ import {
   getUserByIdP,
 } from "../services/user.service";
 import { useAuth } from "../context/authContext";
+import { Loading } from "../components/styledComponents/Loading";
 
 export const Feed = () => {
   //! -- hooks
@@ -88,6 +89,7 @@ export const Feed = () => {
 
 
   return (
+    isLoading ? <Loading/> : (
     <>
       <NavBar>
         <div onClick={() => setFeed("fyp")}>
@@ -125,5 +127,6 @@ export const Feed = () => {
         ))}
       </FlexDir>
     </>
+    )
   );
 };

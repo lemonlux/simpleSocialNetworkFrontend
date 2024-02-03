@@ -24,6 +24,7 @@ const PALETTE_COLOR_DARK = {
   darkerColor: "#2094e3",
   button:  "#fff",
   border:  "#2E3336",
+  search: "#212327",
 };
 
 export const themeDark = {
@@ -37,7 +38,8 @@ export const themeDark = {
       main: PALETTE_COLOR_DARK.color,
       enhance: PALETTE_COLOR_DARK.secondColor,
       darker: PALETTE_COLOR_DARK.darkerColor,
-      diminishing: PALETTE_COLOR_DARK.diminishing
+      diminishing: PALETTE_COLOR_DARK.diminishing,
+      search:PALETTE_COLOR_DARK.search,
     },
     button: {
       main: PALETTE_COLOR_DARK.button,
