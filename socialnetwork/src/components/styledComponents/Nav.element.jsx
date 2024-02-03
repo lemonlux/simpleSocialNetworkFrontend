@@ -9,7 +9,9 @@ flex-direction: column;
 align-items: start;
 justify-content:center;
 
-padding: 0 0 0 7vw;
+padding: 0 0 0 6vw;
+
+
 
 `
 

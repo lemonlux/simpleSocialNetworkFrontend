@@ -11,11 +11,11 @@ export const Home = () => {
     <>
     <HomeElement>
       <Header/>
-      <DivLine/>
-      <FlexDir margin="0" gap="0" width="49vw">
+      <DivLine variant="V"/>
+      <FlexDir margin="0" gap="0" width="49vw" direction="column">
       <Outlet/>
       </FlexDir>
-      <DivLine/>
+      <DivLine variant="V"/>
       <Footer/>
       </HomeElement>
     </>

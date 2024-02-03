@@ -2,16 +2,18 @@ import { useTheme } from "@emotion/react";
 import styled from "@emotion/styled"
 
 const DivLineStyled=styled.div`
-       height: 100vh;
-    width: 1.5px;
+
+
+       height: ${({variant})=> variant == "H" ? "1.5px" : variant == "V" && "100vh" } ;
+    width: ${({variant})=> variant == "H" ? "100%" : variant == "V" && "1.5px" };
     background-color: ${({ theme }) => theme.palette.color.diminishing};
 
 
 
 `
-export const DivLine = () => {
+export const DivLine = ({variant}) => {
     const { theme } = useTheme();
   return (
-    <DivLineStyled theme={theme}></DivLineStyled>
+    <DivLineStyled variant={variant} theme={theme}></DivLineStyled>
   )
 }

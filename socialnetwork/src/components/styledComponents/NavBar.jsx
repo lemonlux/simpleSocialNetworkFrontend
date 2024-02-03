@@ -1,10 +1,17 @@
 import styled from "@emotion/styled"
 
 const NavBarStyled = styled.nav`
-width: 100%;
+min-width: 100%;
 height: 5vh;
 display: flex;
-flex-direction: column;
+flex-direction: row;
+justify-content: space-around;
+align-items: center;
+
+
+& h3 {
+    margin : 0;
+} 
 
 `
 

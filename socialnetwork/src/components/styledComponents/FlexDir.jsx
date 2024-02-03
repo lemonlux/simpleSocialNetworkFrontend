@@ -13,6 +13,7 @@ const FlexStyle = styled.div`
   padding: ${({ padding }) => (padding ? padding : "0")};
   height: ${({ height }) => (height ? height : "auto")};
   width: ${({ width }) => (width ? width : "auto")};
+  position: ${({position})=> position ? position : null };
 
 
 `;
@@ -29,6 +30,7 @@ export const FlexDir = ({
   justifyContent,
   onClick,
   alignItems,
+  position
 }) => {
   const { theme } = useTheme();
 
@@ -36,6 +38,7 @@ export const FlexDir = ({
     <FlexStyle
       wrap={wrap}
       theme={theme}
+      position={position}
       padding={padding}
       width={width}
       height={height}
