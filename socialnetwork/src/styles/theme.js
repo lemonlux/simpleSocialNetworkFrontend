@@ -16,10 +16,10 @@ export const ZINDEX = {
 
 
 const PALETTE_COLOR_DARK = {
-  background:  "#141417",
+  background:  "#0a0a0a",
   lighterBackground: "#252529",
   color:  "#f0f0f2",
-  diminishing: "#2E3336",
+  diminishing: "#74787d",
   secondColor: "#1C9BEF",
   darkerColor: "#2094e3",
   button:  "#fff",

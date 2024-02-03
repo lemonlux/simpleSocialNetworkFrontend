@@ -19,7 +19,7 @@ export const Header = () => {
           <h2>Home</h2>
         </TitleIcon>
       </NavLink>
-      <NavLink className="navLink" to="/feed">
+      <NavLink className="navLink" to="/search">
       <TitleIcon  onClick={() => setPage("explore")}  variant={ page == "explore" && "focus"}>
         {page == "explore" ? <i className="bi bi-search-heart-fill"></i> : <i className="bi bi-search"></i> }
         <h2>Explore</h2>
@@ -39,7 +39,7 @@ export const Header = () => {
          <h2>Saved</h2>
       </TitleIcon>
       </NavLink>
-      <NavLink className="navLink" to="/feed">
+      <NavLink className="navLink" to="/settings">
       <TitleIcon onClick={() => setPage("settings")}  variant={ page == "settings" && "focus"}>
       {page ==  "settings" ? <i className="bi bi-gear-fill"></i> : <i className="bi bi-gear"></i> }
         <h2>Settings</h2>

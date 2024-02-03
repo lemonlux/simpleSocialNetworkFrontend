@@ -5,6 +5,8 @@ import { Register } from "../pages/Register";
 import { LogedOut } from "../pages/LogedOut";
 import { Login } from "../pages/Login";
 import { Feed } from "../pages/Feed";
+import { Settings } from "../pages/Settings";
+import { Search } from "../pages/Search";
 
 
 export const router = createBrowserRouter ([
@@ -22,11 +24,12 @@ export const router = createBrowserRouter ([
                      element: <Feed />,
                   },
                   {
-                    path: "/feed/:id",
-                    // element: 
-                    // // (<Protected>
-                    //   <PostById/>
-                    // // </Protected>),
+                    path: "/settings",
+                     element: <Settings />,
+                  },
+                  {
+                    path: "/search",
+                    element: <Search/>
                   },
                   {
                     path: "/createPost",

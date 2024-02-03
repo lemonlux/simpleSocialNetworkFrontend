@@ -75,7 +75,7 @@ export const usePageNumbering = (num) => {
 
     ComponentPageNumbering: () => (
       <>
-        <FlexDir width={"100vw"} gap={"2px"} margin={"4px"} height={"40px"}>
+        <FlexDir width={"100%"} gap={"2px"} margin={"8px"} height={"5vh"}>
           <Pagination
             variant="normal"
             onClick={() => {

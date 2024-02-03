@@ -5,12 +5,12 @@ import styled from "@emotion/styled"
 const PaginacionStyle= styled.button`
 color: ${({variant, theme}) =>
   variant == "normal" 
-  ? theme.palette.textColor.main :
+  ? theme.palette.color.main :
   variant == "disabled" 
-  ? theme.palette.textColor.second
+  ? theme.palette.color.diminishing
 : variant == "clicked" 
-&& theme.palette.textColor.main};
- border: ${({ theme }) => theme.spacing(0.15)} solid
+&& theme.palette.color.main};
+ border: ${({ theme }) => theme.spacing(0.2)} solid
     ${({ theme }) => theme.palette.border.main};
 width: ${({width})=> width ? width : "40px"};
 height: ${({height})=> height ? height : "40px"};
@@ -24,15 +24,15 @@ align-items: center;
     border-radius: 4px;
 background-color: ${({variant, theme}) =>
   variant == "normal" 
-  ? theme.palette.form.main :
+  ? theme.palette.background.main :
   variant == "disabled" 
-  ? theme.palette.form.main
+  ? theme.palette.background.main
 : variant == "clicked" 
-&& theme.palette.button.mediumGreen};
+&& theme.palette.color.enhance};
 
 &:hover{
   border: ${({ variant , theme}) => 
-  variant == "normal" && `2px solid ${theme.palette.button.mediumGreen}` }; 
+  variant == "normal" && `2px solid ${theme.palette.color.enhance}` }; 
   cursor: ${({variant})=> variant == "normal" && "pointer"} ;
   
 }

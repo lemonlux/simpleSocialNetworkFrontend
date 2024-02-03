@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createPost } from "../services/post.service";
 import { PostPopupElement } from "./styledComponents/PostPopup.Element";
 import { ButtonPrimary } from "./styledComponents/ButtonPrimary";
@@ -11,18 +11,22 @@ export const PostPopup = ({ setPostPopup }) => {
   const [sent, setSent] = useState(false);
 
   const submitPost = async (formData) => {
-    setSent(true)
+    
     let customFormData = {
       text: formData.text
     };
 
     const response = await createPost(customFormData);
+    setSent(true)
     if (response.status == 200) {
         setSent(false)
         setPostPopup(false)
-      navigate("/feed");
+        navigate("/feed");
+       window.location.reload() // si ya está en el feed
     }
   };
+
+
 
   return (
     <PostPopupElement >

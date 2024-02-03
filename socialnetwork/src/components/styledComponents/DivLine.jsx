@@ -6,7 +6,7 @@ const DivLineStyled=styled.div`
 
        height: ${({variant})=> variant == "H" ? "1.5px" : variant == "V" && "100vh" } ;
     width: ${({variant})=> variant == "H" ? "100%" : variant == "V" && "1.5px" };
-    background-color: ${({ theme }) => theme.palette.color.diminishing};
+    background-color: ${({ theme }) => theme.palette.border.main};
 
 
 

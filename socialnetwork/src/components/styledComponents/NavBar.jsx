@@ -1,17 +1,27 @@
+import { useTheme } from "@emotion/react";
 import styled from "@emotion/styled"
 
 const NavBarStyled = styled.nav`
 min-width: 100%;
-height: 5vh;
+height: 7vh;
 display: flex;
 flex-direction: row;
 justify-content: space-around;
 align-items: center;
 
+& div{
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-& h3 {
-    margin : 0;
-} 
+  :hover{
+    background-color: ${({ theme }) => theme.palette.background.light};
+    cursor: pointer;
+}
+}
+
 
 `
 
@@ -20,7 +30,8 @@ align-items: center;
 
 
 export const NavBar = ({children}) => {
+  const { theme } = useTheme();
   return (
-    <NavBarStyled>{children}</NavBarStyled>
+    <NavBarStyled theme={theme} >{children}</NavBarStyled>
   )
 }
