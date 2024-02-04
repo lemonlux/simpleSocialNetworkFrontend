@@ -12,7 +12,6 @@ import { useAuth } from "../context/authContext";
 import { DivLine, FlexDir, H3Feed, Loading, NavBar } from "../components";
 import { IndividualPost } from "../components/IndividualPost";
 
-
 export const Feed = () => {
   //! -- states
   const [feed, setFeed] = useState("fyp"); //* -- feed
@@ -67,9 +66,8 @@ export const Feed = () => {
 
   const getSavedPosts = async () => {
     const response = await getUserById(user._id);
-    setUserSavedPosts(response?.data?.savedPosts); 
+    setUserSavedPosts(response?.data?.savedPosts);
   };
-
 
   //! useEffect
 
@@ -83,12 +81,12 @@ export const Feed = () => {
 
   useEffect(() => {
     getLikedPosts();
-    getSavedPosts()
+    getSavedPosts();
   }, [updatedLikes, updatedSaved, feed]);
 
-
-  return (
-    isLoading ? <Loading/> : (
+  return isLoading ? (
+    <Loading />
+  ) : (
     <>
       <NavBar>
         <div onClick={() => setFeed("fyp")}>
@@ -110,7 +108,7 @@ export const Feed = () => {
         {dataPag.map((item) => (
           <>
             <IndividualPost
-            key={item._id}
+              key={item._id}
               username={item.creator.username}
               img={item.creator.image}
               text={item.text}
@@ -125,6 +123,5 @@ export const Feed = () => {
         ))}
       </FlexDir>
     </>
-    )
   );
 };
