@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom"
-import { LogedOutElement } from "../components/styledComponents/LogedOut.element"
-import { DivLine } from "../components/styledComponents/DivLine"
+import { DivLine, LogedOutElement } from "../components"
 
 export const LogedOut = () => {
   return (
@@ -8,7 +7,7 @@ export const LogedOut = () => {
     <LogedOutElement>
 
     <img  alt="logo bird" className="logo" src="https://res.cloudinary.com/daxddugwt/image/upload/v1706802571/Untitled_Artwork_39_opu2jb.png"/>
-   <DivLine/>
+   <DivLine variant="V"/>
     <Outlet/>
     </LogedOutElement>
     </>

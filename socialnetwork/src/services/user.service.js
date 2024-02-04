@@ -110,9 +110,9 @@ export const addSavedPost= async (idPost) => {
     .catch((error) => error);
 };
 
-export const addFollowing = async (idRoom) => {
+export const addFollowing = async (idUser) => {
   const APIGeneral = extraConfig();
-  return APIGeneral.patch(`/user/followUser/${idRoom}`)
+  return APIGeneral.patch(`/user/followUser/${idUser}`)
     .then((res) => res)
     .catch((error) => error);
 };

@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 
 const FormStyle = styled.form`
 display: flex;
+flex-direction: column;
 
   padding: ${({ padding }) => padding ? padding : "8px"};
   width: ${({ width }) => width};

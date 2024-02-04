@@ -8,18 +8,20 @@ const ButtonStyles = styled.button`
       variant == "delete" ?
       "white" :
       variant == "inverted" ? "white"
-      : variant == "loading" && theme.palette.color.darker};
+      : variant == "loading" ? theme.palette.color.darker :
+    variant == "unfollow" ? theme.palette.background.main : variant == "follow" && "white"};
   color:${({ variant, theme }) =>
     variant == "normal"
       ? "white" :
       
       variant == "delete" ? "red" :
-      variant == "inverted" && theme.palette.color.darker
+      variant == "inverted" ? theme.palette.color.darker : variant == "loading" ? theme.palette.color.darker :
+    variant == "unfollow" ? "white" : variant == "follow" && theme.palette.background.main 
       };
   border-radius: 25px;
-  border: none;
+  border:  ${({ variant }) => variant == "unfollow" ? "1px solid white" : variant == "follow" && "none" };
   font-weight: 600;
-  font-size: 20px;
+  font-size: ${({ variant }) => variant == "unfollow" || variant == "follow" ? "16px" : "20px" };
   text-align: center;
   margin: ${({ margin, theme }) => (margin ? margin : "4px")};
   height: ${({height}) => height ? height : "38px"};

@@ -19,6 +19,10 @@ gap: ${({ gap }) => (gap ? gap : null)};
 }
 
 & textarea{
+  font-family: "Onest";
+}
+
+& textarea{
   width: 100%;
   height: ${({inputHeight}) => inputHeight ? inputHeight: 'auto'};
   color: black;

@@ -1,22 +1,20 @@
 import { useEffect, useState } from "react";
-import { DivLine } from "../components/styledComponents/DivLine";
-import { FlexDir } from "../components/styledComponents/FlexDir";
-import { NavBar } from "../components/styledComponents/NavBar";
+
 import { getAllPosts, getAllPostsFollowing } from "../services/post.service";
 import { usePageNumbering } from "../hooks/usePageNumbering";
-import { H3Feed } from "../components/styledComponents/H3Feed";
-import { IndividualPost } from "../components/IndividualPost";
+
 import {
   addFavPost,
   addSavedPost,
   getUserById,
-  getUserByIdP,
 } from "../services/user.service";
 import { useAuth } from "../context/authContext";
-import { Loading } from "../components/styledComponents/Loading";
+import { DivLine, FlexDir, H3Feed, Loading, NavBar } from "../components";
+import { IndividualPost } from "../components/IndividualPost";
+
 
 export const Feed = () => {
-  //! -- hooks
+  //! -- states
   const [feed, setFeed] = useState("fyp"); //* -- feed
   const [res, setRes] = useState(null);
   const [send, setSend] = useState(false);
@@ -28,9 +26,10 @@ export const Feed = () => {
   const [userSavedPosts, setUserSavedPosts] = useState([]); //* -- bookmarks
   const [updatedSaved, setUpdatedSaved] = useState(false);
 
+  //!-- hooks
 
   const { ComponentPageNumbering, setGalleryItems, dataPag } =
-    usePageNumbering(3);
+    usePageNumbering(4);
   const { user } = useAuth();
 
   //!-- fetch
@@ -111,8 +110,9 @@ export const Feed = () => {
         {dataPag.map((item) => (
           <>
             <IndividualPost
-              username={item.creator[0].username}
-              img={item.creator[0].image}
+            key={item._id}
+              username={item.creator.username}
+              img={item.creator.image}
               text={item.text}
               addToLikes={addToLikes}
               addToSaved={addToSaved}
@@ -121,8 +121,6 @@ export const Feed = () => {
               userSavedPosts={userSavedPosts}
             />
             <DivLine variant="H" />
-            {/* <p>@{item.creator[0].username}</p>
-    <p>{item.text}</p> */}
           </>
         ))}
       </FlexDir>

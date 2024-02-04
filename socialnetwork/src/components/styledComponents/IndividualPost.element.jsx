@@ -23,6 +23,7 @@ height: auto;
 }
 
 & h4{
+  margin: 0;
   font-size: 16px;
   font-weight: 500;
 }

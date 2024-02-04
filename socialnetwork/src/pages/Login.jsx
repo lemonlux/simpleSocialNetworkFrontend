@@ -1,33 +1,33 @@
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate} from "react-router-dom";
 import { loginUser } from "../services/user.service";
 import { useErrorLogin } from "../hooks/useErrorLogin";
 import { useAuth } from "../context/authContext";
-import { FlexDir } from "../components/styledComponents/FlexDir";
-import { Form } from "../components/styledComponents/Form";
-import { H1Form } from "../components/styledComponents/H1Form";
-import { LabelAndInput } from "../components/styledComponents/LabelAndInput";
-import { ButtonPrimary } from "../components/styledComponents/ButtonPrimary";
-import { Small } from "../components/styledComponents/Small";
-import { Anchor } from "../components/styledComponents/Anchor";
-import { H2Form } from "../components/styledComponents/H2Form";
+import { Anchor, ButtonPrimary, FlexDir, Form, H1Form, H2Form, LabelAndInput } from "../components";
+
 
 
 export const Login = () => {
-  const { register, handleSubmit } = useForm();
-  const { login, setUser } = useAuth();
-  const navigate = useNavigate();
+ 
 
+  //! -- states
   const [sent, setSent] = useState(false); 
   const [res, setRes] = useState({});
   const [successfulLogin, setSuccessfulLogin] = useState(false);
 
+  //!-- hooks
+  const { register, handleSubmit } = useForm();
+  const { login, setUser } = useAuth();
+
+  //!-- fetch
   const formSubmit = async (formData) => {
     setSent(true);
     setRes(await loginUser(formData));
     setSent(false);
   };
+
+  //!-- useEffect
 
   useEffect(() => {
     useErrorLogin(res, setRes, login, setSuccessfulLogin);

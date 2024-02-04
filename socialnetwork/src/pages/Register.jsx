@@ -10,26 +10,24 @@ import { useErrorRegister } from "../hooks/useErrorRegister";
 
 
 import * as React from 'react';
-import { FlexDir } from "../components/styledComponents/FlexDir";
-import { H1Form } from "../components/styledComponents/H1Form";
-import { ButtonPrimary } from "../components/styledComponents/ButtonPrimary";
-import { Small } from "../components/styledComponents/Small";
-import { LabelAndInput } from "../components/styledComponents/LabelAndInput";
-import { RadioInput } from "../components/styledComponents/RadioInput";
-import { Anchor } from "../components/styledComponents/Anchor";
-import { Form } from "../components/styledComponents/Form";
-import { H2Form } from "../components/styledComponents/H2Form";
+import { Anchor, ButtonPrimary, FlexDir, Form, H1Form, H2Form, LabelAndInput, RadioInput, Small } from "../components";
+
 
 
 
 
 export const Register = () => {
-  // allUser es la respuesta completa del 200 del service de registro
-  const { setAllUser, bridgeData, setIsDeletedUser } = useAuth();
-  const { register, handleSubmit } = useForm();
+
+  //!-- states
   const [res, setRes] = useState({});
   const [sent, setSent] = useState(false);
   const [okRegister, setRegisterOk] = useState(false);
+
+  //!-- hooks
+  const { setAllUser, bridgeData, setIsDeletedUser } = useAuth();
+  const { register, handleSubmit } = useForm();
+
+  //!-- fetch
 
   const formSubmit = async (formData) => {
     const inputFile = document.getElementById("file-upload").files;
@@ -53,6 +51,8 @@ export const Register = () => {
       setSent(false);
     }
   };
+
+  //!-- useEffect
   useEffect(() => {
     useErrorRegister(res, setRegisterOk, setRes);
     if (res?.status == 200) bridgeData("ALLUSER");
@@ -83,7 +83,6 @@ useEffect(() => {
         <H1Form margin={"8px 0 0 0"}>Happening now</H1Form>
     <H2Form >Join today</H2Form>
    </FlexDir>
-        <FlexDir margin={"0 0 8px 0"}></FlexDir>
 
         <LabelAndInput>
           Username
