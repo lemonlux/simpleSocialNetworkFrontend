@@ -28,10 +28,10 @@ const ButtonStyles = styled.button`
       : variant == "follow" && theme.palette.background.main};
   border-radius: 25px;
   border: ${({ variant }) =>
-    variant == "unfollow" ? "1px solid white" : variant == "follow" && "none"};
+    variant == "unfollow" ? "1px solid white" :  "none"};
   font-weight: 600;
-  font-size: ${({ variant }) =>
-    variant == "unfollow" || variant == "follow" ? "16px" : "20px"};
+  font-size: ${({ fontSize }) =>
+  fontSize ? fontSize : "20px"};
   text-align: center;
   margin: ${({ margin, theme }) => (margin ? margin : "4px")};
   height: ${({ height }) => (height ? height : "38px")};
@@ -49,6 +49,7 @@ export const ButtonPrimary = ({
   onClick,
   margin,
   height,
+  fontSize
 }) => {
   const theme = useTheme();
   return (
@@ -59,6 +60,7 @@ export const ButtonPrimary = ({
       variant={variant}
       onClick={onClick}
       margin={margin}
+      fontSize={fontSize}
     >
       {children}
     </ButtonStyles>

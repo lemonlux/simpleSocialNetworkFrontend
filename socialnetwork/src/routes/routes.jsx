@@ -7,6 +7,7 @@ import { Login } from "../pages/Login";
 import { Feed } from "../pages/Feed";
 import { Settings } from "../pages/Settings";
 import { Search } from "../pages/Search";
+import { Post } from "../pages/Post";
 
 
 export const router = createBrowserRouter ([
@@ -22,6 +23,10 @@ export const router = createBrowserRouter ([
                   {
                     path: "/feed",
                      element: <Feed />,
+                  },
+                  {
+                    path: "/feed/:id",
+                     element: <Post/>,
                   },
                   {
                     path: "/settings",

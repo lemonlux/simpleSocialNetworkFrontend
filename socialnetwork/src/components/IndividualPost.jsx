@@ -1,5 +1,7 @@
+import { Link, useNavigate } from "react-router-dom";
 import { FlexDir } from "./styledComponents/FlexDir";
 import { IndividualPostElement } from "./styledComponents/IndividualPost.element";
+import { DivLine } from "./styledComponents/DivLine";
 
 export const IndividualPost = ({
   username,
@@ -10,13 +12,16 @@ export const IndividualPost = ({
   id,
   userLikedPosts,
   userSavedPosts,
+  variant
 }) => {
+    const navigate = useNavigate()
   const isLiked = userLikedPosts?.includes(id);
   const isSaved = userSavedPosts?.includes(id);
-  console.log(isLiked, userLikedPosts);
+
 
   return (
     <>
+    
       <IndividualPostElement>
         <FlexDir
           alignItems="start"
@@ -52,9 +57,14 @@ export const IndividualPost = ({
             justifyContent="start"
             height="auto"
             minHeight="40px"
+            onClick={()=>{variant != "comment" && navigate(`/feed/${id}`)}}
           >
             <p>{text}</p>
+            
           </FlexDir>
+          {variant != "comment" && (
+
+          
           <FlexDir
             gap="0"
             margin="0"
@@ -62,6 +72,7 @@ export const IndividualPost = ({
             justifyContent="space-around"
             height="50px"
           >
+            
             <i className="bi bi-chat"></i>
             <i
               className={isLiked ? "bi bi-heart-fill" : "bi bi-heart"}
@@ -72,8 +83,10 @@ export const IndividualPost = ({
               onClick={() => addToSaved(id)}
             ></i>
           </FlexDir>
+          )}
         </FlexDir>
       </IndividualPostElement>
+      
     </>
   );
 };

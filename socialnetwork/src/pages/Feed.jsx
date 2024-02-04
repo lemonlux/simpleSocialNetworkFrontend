@@ -57,6 +57,7 @@ export const Feed = () => {
   const getLikedPosts = async () => {
     const response = await getUserById(user._id);
     setUserLikedPosts(response?.data?.likedPosts); //! tiene que ser un array - BACK NO POPULADO
+    setUserSavedPosts(response?.data?.savedPosts);
   };
 
   const addToSaved = async (id) => {
@@ -64,10 +65,7 @@ export const Feed = () => {
     setUpdatedSaved(!updatedSaved);
   };
 
-  const getSavedPosts = async () => {
-    const response = await getUserById(user._id);
-    setUserSavedPosts(response?.data?.savedPosts);
-  };
+
 
   //! useEffect
 
@@ -81,7 +79,6 @@ export const Feed = () => {
 
   useEffect(() => {
     getLikedPosts();
-    getSavedPosts();
   }, [updatedLikes, updatedSaved, feed]);
 
   return isLoading ? (
@@ -117,6 +114,7 @@ export const Feed = () => {
               id={item._id}
               userLikedPosts={userLikedPosts}
               userSavedPosts={userSavedPosts}
+              variant="post"
             />
             <DivLine variant="H" />
           </>

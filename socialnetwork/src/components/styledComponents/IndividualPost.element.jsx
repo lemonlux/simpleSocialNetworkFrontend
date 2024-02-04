@@ -1,3 +1,4 @@
+import { useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
 
 const IndividualPostStyled = styled.div`
@@ -8,6 +9,7 @@ const IndividualPostStyled = styled.div`
   margin: 0;
   width: 100%;
   height: auto;
+  cursor: pointer;
 
   & p {
     font-weight: 300;
@@ -39,14 +41,15 @@ const IndividualPostStyled = styled.div`
   }
 
   .bi-bookmark:hover {
-    color: #1d9bf0;
+    color: ${({theme})=> theme.palette.color.enhance}
   }
 
   .bi-bookmark-fill {
-    color: #1d9bf0;
+    color: ${({theme})=> theme.palette.color.enhance}
   }
 `;
 
-export const IndividualPostElement = ({ children }) => {
-  return <IndividualPostStyled>{children}</IndividualPostStyled>;
+export const IndividualPostElement = ({ children, onClick }) => {
+  const theme = useTheme();
+  return <IndividualPostStyled theme={theme} onClick={onClick}>{children}</IndividualPostStyled>;
 };

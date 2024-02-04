@@ -9,6 +9,10 @@ flex-direction: row;
 justify-content: space-around;
 align-items: center;
 
+& h2{
+  margin: 0;
+}
+
 & div{
   height: 100%;
   width: 50%;

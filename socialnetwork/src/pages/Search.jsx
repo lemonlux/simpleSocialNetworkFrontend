@@ -142,6 +142,7 @@ export const Search = () => {
                   id={item?._id}
                   userLikedPosts={userLikedPosts}
                   userSavedPosts={userSavedPosts}
+                  variant="post"
                 />
                 <DivLine variant="H" />
               </>
@@ -155,6 +156,7 @@ export const Search = () => {
               <>
                 {console.log(item?.username)}
                 <MiniProfile
+                 key={item._id}
                   username={item?.username}
                   img={item?.image}
                   id={item?._id}

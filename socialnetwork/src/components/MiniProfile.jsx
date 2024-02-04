@@ -57,6 +57,7 @@ export const MiniProfile = ({
         <ButtonPrimary
           width="15%"
           variant={isFollowing ? "unfollow" : "follow"}
+          fontSize="16px"
           onClick={() => addToFollowing(id)}
         >
           {isFollowing ? "Unfollow" : "Follow"}
