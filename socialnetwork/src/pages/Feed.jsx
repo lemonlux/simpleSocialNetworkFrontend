@@ -9,8 +9,9 @@ import {
   getUserById,
 } from "../services/user.service";
 import { useAuth } from "../context/authContext";
-import { DivLine, FlexDir, H3Feed, Loading, NavBar } from "../components";
+import { DivLine, FlexDir, H1Form, H2Form, H3Feed, Loading, NavBar } from "../components";
 import { IndividualPost } from "../components/IndividualPost";
+import { Link } from "react-router-dom";
 
 export const Feed = () => {
   //! -- states
@@ -95,6 +96,23 @@ export const Feed = () => {
         </div>
       </NavBar>
       <DivLine variant="H" />
+      {dataPag?.length == 0 && (
+          <>
+           <FlexDir
+        direction="column"
+        height="91vh"
+        width="100%"
+        justifyContent="start"
+        padding="28px 0 0 0"
+
+      >
+          <H1Form  fontSize="40px">This is empty</H1Form>
+          <H2Form fontSize="20px" color="#74787d">You are not following any user. Browse <Link to="/search">explore</Link> to find your friends.</H2Form>
+          </FlexDir>
+          </>
+        )}
+      { dataPag?.length != 0 &&
+        <>
       <ComponentPageNumbering />
       <DivLine variant="H" />
       <FlexDir
@@ -121,6 +139,8 @@ export const Feed = () => {
           </>
         ))}
       </FlexDir>
+      </>
+}
     </>
   );
 };

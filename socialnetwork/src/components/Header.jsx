@@ -28,13 +28,13 @@ export const Header = () => {
         <h2>Explore</h2>
       </TitleIcon>
       </NavLink>
-      <NavLink className="navLink" to="/feed">
-      <TitleIcon onClick={() => setPage("messages")}  variant={ page == "messages" && "focus"}>
+     
+      <TitleIcon variant={ page == "messages" && "focus"}>
         {" "}
         {page == "messages" ? <i className="bi bi-envelope-fill"></i> : <i className="bi bi-envelope"></i> }
         <h2>Messages</h2>
       </TitleIcon>
-      </NavLink>
+     
       <NavLink className="navLink" to="/bookmarks">
       <TitleIcon onClick={() => setPage("saved")}  variant={ page == "saved" && "focus"}>
         {" "}

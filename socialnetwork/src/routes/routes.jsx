@@ -10,6 +10,7 @@ import { Search } from "../pages/Search";
 import { Post } from "../pages/Post";
 import { User } from "../pages/User";
 import { Bookmarks } from "../pages/Bookmarks";
+import { ProtectedRoutes } from "../components/ProtectedRoutes";
 
 export const router = createBrowserRouter([
   {
@@ -18,36 +19,60 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: 
+        <ProtectedRoutes>
+        <Home />
+        </ProtectedRoutes>,
         children: [
           {
             path: "/feed",
-            element: <Feed />,
+            element:
+            <ProtectedRoutes>
+            <Feed />
+            </ProtectedRoutes>,
           },
           {
             path: "/feed/:id",
-            element: <Post />,
+            element:
+            <ProtectedRoutes>
+            <Post />
+            </ProtectedRoutes>,
           },
           {
             path: "/settings",
-            element: <Settings />,
+            element:
+            <ProtectedRoutes> 
+            <Settings />
+            </ProtectedRoutes>,
           },
           {
             path: "/search",
-            element: <Search />,
+            element: 
+            <ProtectedRoutes>
+            <Search />
+            </ProtectedRoutes>,
           },
 
           {
             path: "/user/:username",
-            element: <User />,
+            element: 
+            <ProtectedRoutes>
+            <User />
+            </ProtectedRoutes>,
           },
           {
             path: "/bookmarks",
-            element: <Bookmarks />,
+            element:
+            <ProtectedRoutes>
+            <Bookmarks />
+            </ProtectedRoutes>,
           },
           {
             path: "*",
-            // element: <NotFound />,
+            // element: 
+            // <ProtectedRoutes>
+            // <NotFound />
+            // </ProtectedRoutes>,
           },
         ],
       },
