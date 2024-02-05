@@ -12,11 +12,14 @@ export const IndividualPost = ({
   id,
   userLikedPosts,
   userSavedPosts,
-  variant
+  variant,
+  ownUser,
+  deletePost 
 }) => {
     const navigate = useNavigate()
   const isLiked = userLikedPosts?.includes(id);
   const isSaved = userSavedPosts?.includes(id);
+  const isOwner = ownUser?.myPosts?.includes(id)
 
 
   return (
@@ -48,7 +51,7 @@ export const IndividualPost = ({
             justifyContent="start"
             height="40px"
           >
-            <h4>@{username}</h4>
+            <h4  onClick={()=>{navigate(`/user/${username}`)}}>@{username}</h4>
           </FlexDir>
           <FlexDir
             gap="0"
@@ -82,6 +85,7 @@ export const IndividualPost = ({
               className={isSaved ? "bi bi-bookmark-fill" : "bi bi-bookmark"}
               onClick={() => addToSaved(id)}
             ></i>
+            {isOwner && <i className="bi bi-trash3" onClick={()=> deletePost(id)}></i>}
           </FlexDir>
           )}
         </FlexDir>

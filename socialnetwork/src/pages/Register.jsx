@@ -24,7 +24,7 @@ export const Register = () => {
   const [okRegister, setRegisterOk] = useState(false);
 
   //!-- hooks
-  const { setAllUser, bridgeData, setIsDeletedUser } = useAuth();
+  const { allUser, bridgeData, setIsDeletedUser } = useAuth();
   const { register, handleSubmit } = useForm();
 
   //!-- fetch
@@ -64,7 +64,10 @@ useEffect(() => {
 
 
   if (okRegister) {
-    return <Navigate to="/" />;
+    if (!localStorage.getItem("user")) {
+      useAutoLogin(allUser);
+    }
+    return <Navigate to="/feed" />;
   }
 
 

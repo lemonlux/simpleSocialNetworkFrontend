@@ -10,7 +10,7 @@ import {
 } from "../services/user.service";
 
 import { useAuth } from "../context/authContext";
-import { DivLine, FlexDir, H3Feed, NavBar, SearchBar } from "../components";
+import { DivLine, FlexDir, H1Form, H2Form, H3Feed, NavBar, SearchBar } from "../components";
 import { IndividualPost } from "../components/IndividualPost";
 import { MiniProfile } from "../components/MiniProfile";
 
@@ -60,7 +60,7 @@ export const Search = () => {
       setSend(false);
     }
   };
-  // console.log(res?.data);
+
 
   const addToLikes = async (id) => {
     const response = await addFavPost(id);
@@ -85,7 +85,6 @@ export const Search = () => {
     setUserFollowing(response?.data?.following);
   };
 
-  console.log(userFollowing);
 
   //!-- useEffect
 
@@ -125,10 +124,18 @@ export const Search = () => {
       <FlexDir
         direction="column"
         height="84vh"
-        width="100%"
+
         justifyContent="start"
+        width="60%" padding="28px 0 0 0"
       >
-        {search == "posts" && res?.data != null && (
+        {res?.data?.length == 0 && (
+          <>
+          <H1Form  fontSize="40px">Discover</H1Form>
+          <H2Form fontSize="20px" color="#74787d">Search what you are looking for</H2Form>
+          </>
+        )}
+
+        {search == "posts" && res?.data?.length != 0 && (
           <>
             {res?.data?.slice(0, 4).map((item) => (
               <>

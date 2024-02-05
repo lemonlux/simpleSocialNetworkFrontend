@@ -47,6 +47,11 @@ const IndividualPostStyled = styled.div`
   .bi-bookmark-fill {
     color: ${({theme})=> theme.palette.color.enhance}
   }
+
+
+  .bi-trash3:hover{
+    color: red;
+  }
 `;
 
 export const IndividualPostElement = ({ children, onClick }) => {

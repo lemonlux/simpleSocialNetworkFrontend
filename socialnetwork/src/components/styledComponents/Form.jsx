@@ -4,6 +4,8 @@ import styled from "@emotion/styled";
 const FormStyle = styled.form`
 display: flex;
 flex-direction: column;
+justify-content: center;
+align-items: center;
 
   padding: ${({ padding }) => padding ? padding : "8px"};
   width: ${({ width }) => width};

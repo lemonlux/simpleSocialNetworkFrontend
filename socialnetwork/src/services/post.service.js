@@ -19,7 +19,7 @@ export const updatePost = async (postId, formData) => {
 
 
 // ------------------ DELETE ------------------
-export const deletePost = async (postId) => {
+export const deleteIndPost = async (postId) => {
   const APIGeneral = extraConfig();
   return APIGeneral.delete(`/post/delete/${postId}`)
     .then((res) => res)

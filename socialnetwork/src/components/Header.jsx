@@ -1,16 +1,19 @@
 import { useState } from "react";
-import { ButtonPrimary } from "./styledComponents/ButtonPrimary";
-import { DivLine } from "./styledComponents/DivLine";
-import { TitleIcon } from "./styledComponents/TitleIcon";
 import { NavLink } from "react-router-dom";
-import { NavElement } from "./styledComponents/Nav.element";
 import { PostPopup } from "./PostPopup";
+import { useAuth } from "../context/authContext";
+import { NavElement } from "./styledComponents/Nav.element";
+import { TitleIcon } from "./styledComponents/TitleIcon";
+import { ButtonPrimary } from "./styledComponents/ButtonPrimary";
 
 export const Header = () => {
   const [page, setPage] = useState("home");
   const [postPopup, setPostPopup] = useState(false)
 
+  const { user } = useAuth();
+
   return (
+    <>
     <NavElement>
       <NavLink className="navLink" to="/feed">
         <TitleIcon onClick={() => setPage("home")} variant={ page == "home" && "focus"}>
@@ -32,14 +35,14 @@ export const Header = () => {
         <h2>Messages</h2>
       </TitleIcon>
       </NavLink>
-      <NavLink className="navLink" to="/feed">
+      <NavLink className="navLink" to="/bookmarks">
       <TitleIcon onClick={() => setPage("saved")}  variant={ page == "saved" && "focus"}>
         {" "}
         {page ==  "saved" ? <i className="bi bi-bookmark-fill"></i> :<i className="bi bi-bookmark"></i>}
          <h2>Bookmarks</h2>
       </TitleIcon>
       </NavLink>
-      <NavLink className="navLink" to="/feed">
+      <NavLink className="navLink" to={`/user/${user?.username}`}>
       <TitleIcon onClick={() => setPage("profile")}  variant={ page == "profile" && "focus"}>
       {page ==  "profile" ? <i className="bi bi-person-fill"></i> : <i className="bi bi-person"></i> }
         <h2>Profile</h2>
@@ -63,6 +66,7 @@ export const Header = () => {
       </ButtonPrimary>
       {postPopup && <PostPopup setPostPopup={setPostPopup}/>}
     </NavElement>
+    </>
 
   );
 };

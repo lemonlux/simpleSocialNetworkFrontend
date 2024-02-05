@@ -43,7 +43,7 @@ export const Login = () => {
   }, []);
 
   if (successfulLogin) {
-    return <Navigate to="/" />;
+    return <Navigate to="/feed" />;
   }
 
   return (

@@ -81,7 +81,7 @@ export const Settings = () => {
       ) : (
         <>
           <Form width="100%" onSubmit={handleSubmit(editProfileFormSubmit)}>
-            <H2Form>Edit profile </H2Form>
+            <h2>Edit profile </h2>
             <FlexDir direction="column" width="100%" gap="12px">
               <img
                 style={{
@@ -204,7 +204,7 @@ export const Settings = () => {
             <FlexDir>
               <ButtonPrimary
                 type="submit"
-                width={"70%"}
+                width="210px"
                 disabled={sent}
                 variant={sent ? "loading" : "normal"}
               >

@@ -59,6 +59,16 @@ export const getUserByUsername = async (username) => {
     .catch((error) => error);
 };
 
+
+// -------------------------- GET BY USERNAME POPULATED ------------------------------
+
+export const getUserByUsernamePopulated = async (username) => {
+  const APIGeneral = extraConfig();
+  return APIGeneral.get(`/user/getByUsernameP/${username}`)
+    .then((res) => res)
+    .catch((error) => error);
+};
+
 // -------------------------- GET BY ID POPULATED ------------------------------
 
 export const getUserByIdP = async (id) => {

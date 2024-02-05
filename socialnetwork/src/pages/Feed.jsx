@@ -65,6 +65,7 @@ export const Feed = () => {
     setUpdatedSaved(!updatedSaved);
   };
 
+  console.log(dataPag)
 
 
   //! useEffect
