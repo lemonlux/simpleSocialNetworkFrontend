@@ -9,6 +9,7 @@ export const MiniProfile = ({
   description,
   addToFollowing,
   userFollowing,
+  variant
 }) => {
   const isFollowing = userFollowing.includes(id);
   console.log(userFollowing, id);
@@ -22,14 +23,14 @@ export const MiniProfile = ({
           margin="0"
           width="12%"
           height="100%"
-          padding="16px 0 0 0"
+          padding= {variant !== "mini" ? "16px 0 0 0"  : "0" }
         >
           <img alt={username} src={img} />
         </FlexDir>
         <FlexDir
           gap="0"
           margin="0"
-          padding="0 12px 0 4px"
+          padding={variant !== "mini" ? "0 12px 0 4px" : "0 12px 0 12px" }
           width="70%"
           direction="column"
           height="100%"
@@ -43,6 +44,7 @@ export const MiniProfile = ({
           >
             <h4>@{username}</h4>
           </FlexDir>
+          {variant != "mini" &&
           <FlexDir
             gap="0"
             margin="0"
@@ -52,10 +54,10 @@ export const MiniProfile = ({
             minHeight="40px"
           >
             <p>{description}</p>
-          </FlexDir>
+          </FlexDir>}
         </FlexDir>
         <ButtonPrimary
-          width="15%"
+          width={variant == "mini" ? "35%" : "15%"}
           variant={isFollowing ? "unfollow" : "follow"}
           fontSize="16px"
           onClick={() => addToFollowing(id)}

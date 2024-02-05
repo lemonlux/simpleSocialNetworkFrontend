@@ -126,7 +126,7 @@ export const Search = () => {
         height="84vh"
 
         justifyContent="start"
-        width="60%" padding="28px 0 0 0"
+        width="100%" 
       >
         {res?.data?.length == 0 && (
           <>

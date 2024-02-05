@@ -10,7 +10,8 @@ import { useErrorRegister } from "../hooks/useErrorRegister";
 
 
 import * as React from 'react';
-import { Anchor, ButtonPrimary, FlexDir, Form, H1Form, H2Form, LabelAndInput, RadioInput, Small } from "../components";
+import { PLink, ButtonPrimary, FlexDir, Form, H1Form, H2Form, LabelAndInput, RadioInput, Small } from "../components";
+import { useAutoLogin } from "../hooks/useAutoLogin";
 
 
 
@@ -64,8 +65,10 @@ useEffect(() => {
 
 
   if (okRegister) {
+    console.log(allUser)
     if (!localStorage.getItem("user")) {
       useAutoLogin(allUser);
+      <Navigate to="/feed" />
     }
     return <Navigate to="/feed" />;
   }
@@ -193,7 +196,7 @@ useEffect(() => {
         <FlexDir margin={"0"}>
           Already a member?
           <Link to="/log/login">
-            <Anchor>Login Here</Anchor>
+            <PLink>Login Here</PLink>
           </Link>
         </FlexDir>
 

@@ -88,7 +88,7 @@ export const getUserById = async (id) => {
 
 // -------------------------- GET ALL  ------------------------------
 
-export const getUserByUsernameP = async () => {
+export const getAllUserP = async () => {
   const APIGeneral = extraConfig();
   return APIGeneral.get(`/user/getAll`)
     .then((res) => res)

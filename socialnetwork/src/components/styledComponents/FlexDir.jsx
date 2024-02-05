@@ -32,7 +32,8 @@ export const FlexDir = ({
   justifyContent,
   onClick,
   alignItems,
-  position
+  position,
+className
 }) => {
   const { theme } = useTheme();
 
@@ -51,6 +52,7 @@ export const FlexDir = ({
       direction={direction}
       justifyContent={justifyContent}
       alignItems={alignItems}
+      className={className}
     >
       {children}
     </FlexStyle>

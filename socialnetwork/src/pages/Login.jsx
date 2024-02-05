@@ -5,7 +5,7 @@ import { loginUser } from "../services/user.service";
 import { useErrorLogin } from "../hooks/useErrorLogin";
 import { useAuth } from "../context/authContext";
 import {
-  Anchor,
+  PLink,
   ButtonPrimary,
   FlexDir,
   Form,
@@ -96,7 +96,7 @@ export const Login = () => {
           <FlexDir margin={"0 0 1rem"}>
             Are you not registered?{" "}
             <Link to="/log/signup">
-              <Anchor>Register Here</Anchor>
+              <PLink>Register Here</PLink>
             </Link>
           </FlexDir>
         </FlexDir>

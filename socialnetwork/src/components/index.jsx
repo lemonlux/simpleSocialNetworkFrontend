@@ -1,4 +1,4 @@
-export * from "./styledComponents/Anchor"
+export * from "./styledComponents/PLink"
 export * from "./styledComponents/ButtonPrimary"
 export * from "./styledComponents/DivLine"
 export * from "./styledComponents/FlexDir"

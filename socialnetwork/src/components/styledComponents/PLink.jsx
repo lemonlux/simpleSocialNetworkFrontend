@@ -1,19 +1,19 @@
 import { useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
 
-const AnchorStyles = styled.p`
+const PLinkStyles = styled.p`
 color: ${({ theme })=> theme.palette.color.enhance};
 text-decoration: underline;
 margin: ${({margin}) => margin ? margin : 0};
-
+cursor: pointer;
 `
 
 
 
 
-export const Anchor = ({children, margin, onClick}) => {
+export const PLink = ({children, margin, onClick}) => {
   const theme = useTheme();
   return (
-    <AnchorStyles theme={theme} margin={margin} onClick={onClick} >{children}</AnchorStyles>
+    <PLinkStyles theme={theme} margin={margin} onClick={onClick} >{children}</PLinkStyles>
   )
 }

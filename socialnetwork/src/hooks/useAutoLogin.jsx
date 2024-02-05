@@ -1,9 +1,11 @@
 import { Navigate } from "react-router-dom";
-import { autoLoginUser } from "../services/user.service";
 import { useAuth } from "../context/authContext";
+import { autoLoginUser } from "../services/user.service";
+
 
 export const useAutoLogin = async (allUser) => {
 const {login} = useAuth();
+console.log(allUser)
   try {
     const customFormData = {
       email: allUser?.data?.user?.email,
@@ -13,6 +15,7 @@ const {login} = useAuth();
 
 
     const sentAutoLoginData = await autoLoginUser(customFormData);
+    console.log(sentAutoLoginData)
     if (sentAutoLoginData?.status == 200) {
       // console.log(sentAutoLoginData)
       const { username, email, image, privacy, gender} = sentAutoLoginData.data.user;
@@ -24,7 +27,7 @@ const {login} = useAuth();
         image,
         privacy,
         _id: sentAutoLoginData.data.user._id,
-        gender,
+        
       
       };
   
@@ -33,7 +36,7 @@ const {login} = useAuth();
       login(userToJSONString);
       return <Navigate to="/feed"/>
     } else {
-        return <Navigate to="/login"/>
+        return <Navigate to="/log/login"/>
     }
 } catch (error) {
     return (
