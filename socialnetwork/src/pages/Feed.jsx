@@ -12,6 +12,7 @@ import { useAuth } from "../context/authContext";
 import { DivLine, FlexDir, H1Form, H2Form, H3Feed, Loading, NavBar } from "../components";
 import { IndividualPost } from "../components/IndividualPost";
 import { Link } from "react-router-dom";
+import { useThemeApp } from "../context/themeContext";
 
 export const Feed = () => {
   //! -- states
@@ -27,9 +28,9 @@ export const Feed = () => {
   const [updatedSaved, setUpdatedSaved] = useState(false);
 
   //!-- hooks
-
+  const { isMobile } = useThemeApp()
   const { ComponentPageNumbering, setGalleryItems, dataPag } =
-    usePageNumbering(4);
+    usePageNumbering(isMobile ? 3 : 4);
   const { user } = useAuth();
 
   //!-- fetch

@@ -54,5 +54,5 @@ export const themeDark = {
     tablet: `@media (min-width: ${BREAKPOINTS.tablet}px) and (max-width: ${BREAKPOINTS.desktop}px)`,
     desktop: `@media (min-width: ${BREAKPOINTS.desktop}px)`,
   },
-  spacing,
+  spacing
 };

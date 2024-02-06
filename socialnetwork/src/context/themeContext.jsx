@@ -7,11 +7,13 @@ export const ThemeContextProvider = ({ children }) => {
  
   const [theme, setTheme] = useState("dark");
 
+  const isMobile = window.innerWidth < 576 ? true : false 
 
   const value = useMemo(
     () => ({
       theme,
       setTheme,
+      isMobile
     }),
     [theme]
   );

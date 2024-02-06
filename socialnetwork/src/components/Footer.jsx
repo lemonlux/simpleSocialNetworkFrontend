@@ -14,6 +14,7 @@ import { H1Form } from "./styledComponents/H1Form";
 import { PLink } from "./styledComponents/PLink";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
+import { useThemeApp } from "../context/themeContext";
 
 export const Footer = () => {
   //!--states
@@ -26,6 +27,8 @@ export const Footer = () => {
 
   //!--hooks
   const { user } = useAuth();
+
+  const { isMobile } = useThemeApp()
 
   //!-- fetch
 
@@ -58,7 +61,9 @@ export const Footer = () => {
     getFollowing();
   }, [updatedFollowing]);
 
-  return isLoading ? (
+  return (
+    !isMobile &&(
+    isLoading ? (
     <Loading />
   ) : (
     <FooterElement>
@@ -126,5 +131,6 @@ export const Footer = () => {
         </p>
       </FlexDir>
     </FooterElement>
-  );
+  )
+  ))
 };

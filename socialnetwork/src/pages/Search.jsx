@@ -142,6 +142,8 @@ export const Search = () => {
             {res?.data?.slice(0, 4).map((item) => (
               <>
                 <IndividualPost
+                likes={item.likes.length}
+                comments={item.comments.length}
                 privacy={item.creator.privacy}
                   key={item._id}
                   username={item?.creator?.username}

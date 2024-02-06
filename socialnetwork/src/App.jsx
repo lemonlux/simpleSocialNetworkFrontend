@@ -10,9 +10,7 @@ const App = () => {
   return (
     <>
      <ThemeProvider
-        theme={createTheme(themeDark)}
-      >
-
+        theme={createTheme(themeDark)} >
     <GlobalStyles/>
       <Outlet/>
      </ThemeProvider>

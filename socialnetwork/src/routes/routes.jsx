@@ -22,7 +22,7 @@ export const router = createBrowserRouter([
         path: "/",
         element: 
         <ProtectedRoutes>
-        <Home />,
+        <Home />
         </ProtectedRoutes>,
         children: [
           {
@@ -70,10 +70,10 @@ export const router = createBrowserRouter([
           },
           {
             path: "*",
-            // element: 
-            // <ProtectedRoutes>
-            // <NotFound />
-            // </ProtectedRoutes>,
+            element: 
+            <ProtectedRoutes>
+            <Feed />
+            </ProtectedRoutes>,
           },
         ],
       },

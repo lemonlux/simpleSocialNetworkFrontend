@@ -5,6 +5,7 @@ import { ButtonPrimary, DivLine, FlexDir, H1Form, H2Form, H3Feed, IndividualPost
 import { useAuth } from "../context/authContext";
 import { UserElement } from "../components/styledComponents/User.element";
 import { IndividualPost } from "../components/IndividualPost";
+import { useThemeApp } from "../context/themeContext";
 
 
 export const User = () => {
@@ -29,6 +30,7 @@ export const User = () => {
     const { username } = useParams()
     const { user } = useAuth();
     const navigate = useNavigate()
+    const { isMobile } = useThemeApp()
 
 //! --- fetch
     const fetchData = async () => {
@@ -81,11 +83,13 @@ export const User = () => {
     isLoading ? (
       <Loading />
     ) : 
-    <>
+    <> {!isMobile && 
+      <>
     <NavBar>
         <h2>@{username}</h2>
       </NavBar>
       <DivLine variant="H" />
+      </>}
           <UserElement>
         <FlexDir
           alignItems="start"
@@ -102,7 +106,7 @@ export const User = () => {
           gap="0"
           margin="0"
           padding="0 12px 0 4px"
-          width="60%"
+          width={isMobile ? "40%" : "60%"}
           direction="column"
           height="100%"
         >
@@ -110,7 +114,7 @@ export const User = () => {
         </FlexDir>
         {!isOwnUser ? (
         <ButtonPrimary
-          width="15%"
+          width={isMobile ? "30%" : "15%"}
           variant={isFollowing ? "unfollow" : "follow"}
           fontSize="16px"
           onClick={() => addToFollowing()}
@@ -119,7 +123,7 @@ export const User = () => {
         </ButtonPrimary>
         ): (
             <ButtonPrimary
-          width="20%"
+          width={isMobile ? "30%" : "20%"}
           variant="unfollow"
           fontSize="16px"
           onClick={() => navigate("/settings")}

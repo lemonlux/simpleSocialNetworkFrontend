@@ -75,7 +75,7 @@ export const IndividualPost = ({
             margin="0"
             width="100%"
             justifyContent="space-around"
-            height="50px"
+            height="40px"
           >
             <FlexDir gap="8px">
             <i className="bi bi-chat" onClick={()=>{variant != "comment" && navigate(`/feed/${id}`)}}></i>
