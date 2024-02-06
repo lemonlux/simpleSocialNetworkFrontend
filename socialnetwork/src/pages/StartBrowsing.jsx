@@ -1,9 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FlexDir, H1Form, H2Form, SpanLink } from "../components";
+import { useAuth } from "../context/authContext";
 
 export const StartBrowsing = () => {
-  const navigate = useNavigate();
 
+const { user } = useAuth()
   return (
     <FlexDir
       direction={"column"}
@@ -12,7 +13,7 @@ export const StartBrowsing = () => {
       height={"100vh"}
       alignItems="start"
     >
-      <H1Form fontSize="50px">Succesfully logged in!</H1Form>
+      <H1Form fontSize="50px">Welcome, @{user.username} </H1Form>
       <H2Form fontSize="28px" color="#74787d">
         The fun begins now.{" "}
       </H2Form>

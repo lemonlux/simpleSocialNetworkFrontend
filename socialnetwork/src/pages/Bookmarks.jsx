@@ -108,6 +108,7 @@ export const Bookmarks = () => {
         {dataPag.map((item) => (
           <>
             <IndividualPost
+            privacy={item.creator.privacy}
               key={item._id}
               username={item.creator.username}
               img={item.creator.image}

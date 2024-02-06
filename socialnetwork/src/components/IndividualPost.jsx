@@ -16,7 +16,8 @@ export const IndividualPost = ({
   userSavedPosts,
   variant,
   ownUser,
-  deletePost 
+  deletePost,
+  privacy
 }) => {
     const navigate = useNavigate()
   const isLiked = userLikedPosts?.includes(id);
@@ -52,7 +53,7 @@ export const IndividualPost = ({
             justifyContent="start"
             height="40px"
           >
-            <h4  onClick={()=>{navigate(`/user/${username}`)}}>@{username}</h4>
+            <h4  onClick={()=>{navigate(`/user/${username}`)}}>@{username}</h4>{ privacy == "private" && <i className="bi bi-lock-fill"></i>}
           </FlexDir>
           <FlexDir
             gap="0"

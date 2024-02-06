@@ -88,7 +88,7 @@ export const Login = () => {
             type="submit"
             margin={"1rem 0 0 0"}
             disabled={sent}
-            variant={sent ? "loading" : "normal"}
+            variant="normal"
           >
             {sent ? "Loading..." : "Login"}
           </ButtonPrimary>

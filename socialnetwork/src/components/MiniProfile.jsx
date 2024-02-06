@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { ButtonPrimary } from "./styledComponents/ButtonPrimary";
 import { FlexDir } from "./styledComponents/FlexDir";
 import { IndividualPostElement } from "./styledComponents/IndividualPost.element";
@@ -9,23 +10,24 @@ export const MiniProfile = ({
   description,
   addToFollowing,
   userFollowing,
-  variant
+  variant,
+  privacy
 }) => {
-  const isFollowing = userFollowing.includes(id);
-  console.log(userFollowing, id);
+  const navigate = useNavigate()
+  const isFollowing = userFollowing?.includes(id);
+
 
   return (
     <>
       <IndividualPostElement>
         <FlexDir
-          alignItems="start"
           gap="0"
           margin="0"
           width="12%"
           height="100%"
           padding= {variant !== "mini" ? "16px 0 0 0"  : "0" }
         >
-          <img alt={username} src={img} />
+          <img alt={username} src={img} onClick={()=>{navigate(`/user/${username}`)}}/>
         </FlexDir>
         <FlexDir
           gap="0"
@@ -42,7 +44,7 @@ export const MiniProfile = ({
             justifyContent="start"
             height="40px"
           >
-            <h4>@{username}</h4>
+            <h4 onClick={()=>{navigate(`/user/${username}`)}}>@{username}</h4> { privacy == "private" && <i className="bi bi-lock-fill"></i>}
           </FlexDir>
           {variant != "mini" &&
           <FlexDir
@@ -53,9 +55,10 @@ export const MiniProfile = ({
             height="auto"
             minHeight="40px"
           >
-            <p>{description}</p>
+            <p onClick={()=>{navigate(`/user/${username}`)}}>{description}</p>
           </FlexDir>}
         </FlexDir>
+        {isFollowing != undefined &&
         <ButtonPrimary
           width={variant == "mini" ? "35%" : "15%"}
           variant={isFollowing ? "unfollow" : "follow"}
@@ -63,7 +66,7 @@ export const MiniProfile = ({
           onClick={() => addToFollowing(id)}
         >
           {isFollowing ? "Unfollow" : "Follow"}
-        </ButtonPrimary>
+        </ButtonPrimary>}
       </IndividualPostElement>
     </>
   );

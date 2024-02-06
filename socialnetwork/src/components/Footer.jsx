@@ -82,6 +82,7 @@ console.log(res)
               <>
                 {console.log(item?.username)}
                 <MiniProfile
+                privacy={item.privacy}
                  key={item._id}
                   username={item?.username}
                   img={item?.image}
@@ -96,7 +97,26 @@ console.log(res)
 
 <Link to="/search"> <PLink  >Show More</PLink></Link>
       </FlexDir>
-
+      <FlexDir
+      margin="12px 0 0 0"
+        direction="column"
+        height="auto"
+        justifyContent="center"
+        width="85%" 
+        padding="8px 16px"
+        className="footerDiv"
+      >
+      <MiniProfile
+      
+                 key={user._id}
+                  username={user.username}
+                  img={user.image}
+                  id={user._id}
+                  privacy={user.privacy}
+                  // description={item?.description}
+                  variant = "mini"
+                />
+                </FlexDir>
       <FlexDir
         direction="column"
         height="auto"

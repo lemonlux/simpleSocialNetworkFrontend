@@ -44,6 +44,7 @@ export const Post = () => {
   const { id } = useParams();
   const { user } = useAuth();
   const { register, handleSubmit } = useForm();
+  const navigate = useNavigate()
 
   //!-- fetch
 
@@ -165,7 +166,7 @@ export const Post = () => {
               height="40px"
             >
               <h4>
-                Replying to <span>@{res?.creator?.username}</span>
+                Replying to <span onClick={()=>{navigate(`/user/${res?.creator?.username}`)}}>@{res?.creator?.username}</span>
               </h4>
             </FlexDir>
             <FlexDir

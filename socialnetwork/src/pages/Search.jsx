@@ -61,6 +61,7 @@ export const Search = () => {
     }
   };
 
+  console.log(res)
 
   const addToLikes = async (id) => {
     const response = await addFavPost(id);
@@ -140,6 +141,7 @@ export const Search = () => {
             {res?.data?.slice(0, 4).map((item) => (
               <>
                 <IndividualPost
+                privacy={item.creator.privacy}
                   key={item._id}
                   username={item?.creator?.username}
                   img={item?.creator?.image}
@@ -164,6 +166,7 @@ export const Search = () => {
                 {console.log(item?.username)}
                 <MiniProfile
                  key={item._id}
+                 privacy={item.privacy}
                   username={item?.username}
                   img={item?.image}
                   id={item?._id}

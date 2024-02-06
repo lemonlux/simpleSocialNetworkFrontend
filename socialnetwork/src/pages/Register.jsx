@@ -186,7 +186,7 @@ useEffect(() => {
           width={"70%"}
           type="submit"
           disabled={sent}
-          variant={sent ? "loading" : "normal"}
+          variant="normal"
         >
           <div type="submit"></div>
           {sent ? "Loading..." : "Sign up"}
