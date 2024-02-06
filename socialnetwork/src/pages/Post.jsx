@@ -98,15 +98,17 @@ export const Post = () => {
 
   useEffect(() => {
     setGallery();
-  }, [resComment]);
+  }, [resComment, updatedLikes]);
 
   useEffect(() => {
     getLikedPosts();
-  }, [updatedLikes, updatedSaved]);
+  }, [res, updatedLikes, updatedSaved]);
 
   if (isDeleted) {
     return <Navigate to="/feed" />;
   }
+
+  console.log(res?.likes)
 
   return isLoading ? (
     <Loading />
@@ -211,7 +213,7 @@ export const Post = () => {
           </FlexDir>
         </Comment>
         <DivLine variant="H" />
-        {res?.comments?.slice(0, 3).map((item) => (
+        {res?.comments?.toReversed().slice(0, 3).map((item) => (
           <>
             <IndividualPost
               key={item._id}

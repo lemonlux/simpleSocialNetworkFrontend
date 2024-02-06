@@ -10,7 +10,7 @@ import {
 } from "../services/user.service";
 
 import { useAuth } from "../context/authContext";
-import { DivLine, FlexDir, H1Form, H2Form, H3Feed, NavBar, SearchBar } from "../components";
+import { DivLine, FlexDir, H1Form, H2Form, H3Feed, Loading, NavBar, SearchBar } from "../components";
 import { IndividualPost } from "../components/IndividualPost";
 import { MiniProfile } from "../components/MiniProfile";
 
@@ -74,8 +74,7 @@ export const Search = () => {
   };
 
   const addToFollowing = async (id) => {
-    const response = await addFollowing(id);
-    console.log(response);
+    const response = await addFollowing(id);;
     setUpdatedFollowing(!updatedFollowing);
   };
 
@@ -91,14 +90,16 @@ export const Search = () => {
 
   useEffect(() => {
     setGallery();
-  }, [search]);
+  }, [search, updatedLikes]);
 
   useEffect(() => {
     getLikedPosts();
-    // getSavedPosts()
   }, [updatedLikes, updatedSaved, updatedFollowing, search]);
 
   return (
+    isLoading ? (
+      <Loading />
+    ) : 
     <>
       <SearchBar>
         {" "}

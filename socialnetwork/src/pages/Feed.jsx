@@ -66,7 +66,6 @@ export const Feed = () => {
     setUpdatedSaved(!updatedSaved);
   };
 
-  console.log(dataPag)
 
 
   //! useEffect
@@ -77,7 +76,7 @@ export const Feed = () => {
 
   useEffect(() => {
     setGallery();
-  }, [feed]);
+  }, [feed, updatedLikes]);
 
   useEffect(() => {
     getLikedPosts();

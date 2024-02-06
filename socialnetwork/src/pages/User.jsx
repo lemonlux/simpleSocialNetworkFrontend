@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom"
 import { addFavPost, addFollowing, addSavedPost, getUserById, getUserByUsernamePopulated } from "../services/user.service";
 import { useEffect, useState } from "react";
-import { ButtonPrimary, DivLine, FlexDir, H1Form, H2Form, H3Feed, IndividualPostElement, NavBar, Span } from "../components";
+import { ButtonPrimary, DivLine, FlexDir, H1Form, H2Form, H3Feed, IndividualPostElement, Loading, NavBar, Span } from "../components";
 import { useAuth } from "../context/authContext";
 import { UserElement } from "../components/styledComponents/User.element";
 import { IndividualPost } from "../components/IndividualPost";
@@ -69,12 +69,18 @@ export const User = () => {
            useEffect(() => {
             fetchData()
             ownUser()
-               }, [updatedFollowing, updatedLikes, updatedSaved])
+          }, [updatedFollowing, updatedLikes, updatedSaved, username, feed])
+
+
+    
 
       const isFollowing = userFollowing?.includes(res?.data?._id);
 
 
   return (
+    isLoading ? (
+      <Loading />
+    ) : 
     <>
     <NavBar>
         <h2>@{username}</h2>
@@ -113,7 +119,7 @@ export const User = () => {
         </ButtonPrimary>
         ): (
             <ButtonPrimary
-          width="15%"
+          width="20%"
           variant="unfollow"
           fontSize="16px"
           onClick={() => navigate("/settings")}
@@ -202,12 +208,13 @@ export const User = () => {
         ))}
         {feed == "likes" && (res?.data?.privacy == "public" || isOwnUser)&&  res?.data?.likedPosts?.toReversed().slice(0,2).map((item) => (
           <>
+          {console.log(res)}
             <IndividualPost
               key={item._id}
               likes={item.likes.length}
               comments={item.comments.length}
-              username={username}
-              img={res?.data?.image}
+              username={item.creator.username}
+              img={item.creator.image}
               text={item.text}
               addToLikes={addToLikes}
               addToSaved={addToSaved}

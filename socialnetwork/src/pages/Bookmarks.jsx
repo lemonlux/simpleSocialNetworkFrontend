@@ -63,7 +63,7 @@ export const Bookmarks = () => {
   
     useEffect(() => {
       setGallery();
-    }, [updatedSaved]);
+    }, [updatedSaved, updatedLikes]);
   
     useEffect(() => {
       getLikedPosts();
@@ -108,7 +108,9 @@ export const Bookmarks = () => {
         {dataPag.map((item) => (
           <>
             <IndividualPost
-            privacy={item.creator.privacy}
+           likes={item.likes.length}
+           privacy={item.creator.privacy}
+           comments={item.comments.length}
               key={item._id}
               username={item.creator.username}
               img={item.creator.image}

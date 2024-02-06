@@ -206,7 +206,7 @@ export const Settings = () => {
                 type="submit"
                 width="210px"
                 disabled={sent}
-                variant={sent ? "loading" : "normal"}
+                variant="normal"
               >
                 Save
               </ButtonPrimary>
