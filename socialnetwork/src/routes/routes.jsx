@@ -11,6 +11,7 @@ import { Post } from "../pages/Post";
 import { User } from "../pages/User";
 import { Bookmarks } from "../pages/Bookmarks";
 import { ProtectedRoutes } from "../components/ProtectedRoutes";
+import { StartBrowsing } from "../pages/StartBrowsing";
 
 export const router = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ export const router = createBrowserRouter([
         path: "/",
         element: 
         <ProtectedRoutes>
-        <Home />
+        <Home />,
         </ProtectedRoutes>,
         children: [
           {
@@ -87,6 +88,10 @@ export const router = createBrowserRouter([
           {
             path: "/log/login",
             element: <Login />,
+          },
+          {
+            path: "/log/start",
+            element: <StartBrowsing />,
           },
         ],
       },

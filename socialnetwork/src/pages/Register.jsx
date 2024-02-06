@@ -65,12 +65,10 @@ useEffect(() => {
 
 
   if (okRegister) {
-    console.log(allUser)
     if (!localStorage.getItem("user")) {
       useAutoLogin(allUser);
-      <Navigate to="/feed" />
     }
-    return <Navigate to="/feed" />;
+    return <Navigate to="/log/start" />;
   }
 
 

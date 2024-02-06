@@ -4,6 +4,8 @@ import { IndividualPostElement } from "./styledComponents/IndividualPost.element
 import { DivLine } from "./styledComponents/DivLine";
 
 export const IndividualPost = ({
+  likes,
+  comments,
   username,
   img,
   text,
@@ -20,7 +22,6 @@ export const IndividualPost = ({
   const isLiked = userLikedPosts?.includes(id);
   const isSaved = userSavedPosts?.includes(id);
   const isOwner = ownUser?.myPosts?.includes(id)
-
 
   return (
     <>
@@ -75,12 +76,14 @@ export const IndividualPost = ({
             justifyContent="space-around"
             height="50px"
           >
-            
-            <i className="bi bi-chat"></i>
+            <FlexDir gap="8px">
+            <i className="bi bi-chat" onClick={()=>{variant != "comment" && navigate(`/feed/${id}`)}}></i>
+            <span>{comments}</span></FlexDir>
+            <FlexDir gap="8px">
             <i
               className={isLiked ? "bi bi-heart-fill" : "bi bi-heart"}
               onClick={() => addToLikes(id)}
-            ></i>
+            ></i><span>{likes}</span></FlexDir>
             <i
               className={isSaved ? "bi bi-bookmark-fill" : "bi bi-bookmark"}
               onClick={() => addToSaved(id)}

@@ -5,7 +5,7 @@ const H3FeedStyled = styled.h3`
 
 color: ${({variant, theme}) => variant == "focus" ? theme.palette.color.main: theme.palette.color.diminishing };
 
-
+font-size: 20px;
 margin : 0;
     font-weight: 500;
     text-decoration: ${({variant, theme}) => variant == "focus" ? `4px underline ${theme.palette.color.enhance}` : "none" };

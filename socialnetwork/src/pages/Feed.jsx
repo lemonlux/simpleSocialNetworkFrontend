@@ -125,6 +125,8 @@ export const Feed = () => {
           <>
             <IndividualPost
               key={item._id}
+              likes={item.likes.length}
+              comments={item.comments.length}
               username={item.creator.username}
               img={item.creator.image}
               text={item.text}

@@ -6,12 +6,6 @@ export const useErrorRegister = (res, setRegisterOk, setRes) => {
     const dataToString = JSON.stringify(res);
     localStorage.setItem("data", dataToString);
     setRegisterOk(() => true);
-    Swal.fire({
-      icon: "success",
-      title: 'Register succesful',
-      showConfirmButton: false,
-      timer: 300,
-    });
     setRes({});}
   //! ------------------- 409: user ya registrado
 
@@ -21,7 +15,7 @@ export const useErrorRegister = (res, setRegisterOk, setRes) => {
       title: "Invalid email",
       text: "Please, enter a valid email",
       showConfirmButton: false,
-      timer: 1500,
+      timer: 2000,
     });
     setRes({});
   }

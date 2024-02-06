@@ -4,11 +4,14 @@ import { useEffect, useState } from "react";
 import { createPost } from "../services/post.service";
 import { PostPopupElement } from "./styledComponents/PostPopup.Element";
 import { ButtonPrimary } from "./styledComponents/ButtonPrimary";
+import { FlexDir } from "./styledComponents/FlexDir";
 
 export const PostPopup = ({ setPostPopup }) => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const [sent, setSent] = useState(false);
+
+  const [inputValue, setInputValue] = useState("");
 
   const submitPost = async (formData) => {
     
@@ -28,16 +31,28 @@ export const PostPopup = ({ setPostPopup }) => {
 
 
 
+  const maxLength = inputValue?.length >= "280" ? true : false
+
+
   return (
     <PostPopupElement >
       <div id="uniqueDiv">
-        <h1 style={{justifyContent: 'center', display: 'flex', alignItems: 'center', fontSize: '22px'}}>What is happening?!</h1>
-
+      {maxLength && 
+        <div class="alert alert-danger" role="alert">
+  Post must be 280 characters max
+</div>}
         <form onSubmit={handleSubmit(submitPost)}>
-          <textarea {...register("text")} />
+
+          <textarea maxlength="300" {...register("text")} placeholder= "What is happening?!"onInput={(e) => {
+                setInputValue(e.target.value);
+              }} />
+              <FlexDir  width="50%" justifyContent={"end"}>
+              <p>{inputValue?.length}/280</p>
           <ButtonPrimary type="submit" width="100%" variant="normal" >
             {sent ? "Loading" : "Post"} 
           </ButtonPrimary>
+         
+          </FlexDir>
         </form>
         <ButtonPrimary
           variant="delete"
@@ -46,7 +61,9 @@ export const PostPopup = ({ setPostPopup }) => {
         >
           Cancel
         </ButtonPrimary>
+    
       </div>
+      
     </PostPopupElement>
   );
 };

@@ -38,9 +38,11 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   const login = (data) => {
+  
     localStorage.setItem("user", data);
     const parseUser = JSON.parse(data);
     setUser(parseUser);
+
   };
 
   const logout = () => {

@@ -7,7 +7,7 @@ export const ProtectedRoutes = ({children}) => {
     if(isDeletedUser){
         return <Navigate to="/log/signup"/>
     }
-    if(user == null || user == undefined) {
+    if(user == null) {
 
         return <Navigate to="/log/login"/>
     }

@@ -37,7 +37,7 @@ export const Footer = () => {
 
   };
 
-
+console.log(res)
   const addToFollowing = async (id) => {
     const response = await addFollowing(id);
     console.log(response);
@@ -78,7 +78,7 @@ export const Footer = () => {
         className="footerDiv"
       >
         <H1Form fontSize={"30px"}>You might know</H1Form>
-{res?.data?.slice(0,3).map((item) => (
+{res?.data?.slice(1,4).map((item) => (
               <>
                 {console.log(item?.username)}
                 <MiniProfile

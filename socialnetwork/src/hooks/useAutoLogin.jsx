@@ -4,20 +4,18 @@ import { autoLoginUser } from "../services/user.service";
 
 
 export const useAutoLogin = async (allUser) => {
-const {login} = useAuth();
-console.log(allUser)
+const {login, user} = useAuth();
+
   try {
     const customFormData = {
       email: allUser?.data?.user?.email,
       password: allUser?.data?.user?.password
     };
 
-
-
     const sentAutoLoginData = await autoLoginUser(customFormData);
     console.log(sentAutoLoginData)
     if (sentAutoLoginData?.status == 200) {
-      // console.log(sentAutoLoginData)
+    
       const { username, email, image, privacy, gender} = sentAutoLoginData.data.user;
         
       const customUser = {
@@ -26,6 +24,7 @@ console.log(allUser)
         email,
         image,
         privacy,
+        gender,
         _id: sentAutoLoginData.data.user._id,
         
       
@@ -34,8 +33,14 @@ console.log(allUser)
 
       const userToJSONString = JSON.stringify(customUser)
       login(userToJSONString);
-      return <Navigate to="/feed"/>
+      
+ 
+
+        return <Navigate to="/log/start"/>
+  
+      
     } else {
+      console.log("no entrooooo", sentAutoLoginData)
         return <Navigate to="/log/login"/>
     }
 } catch (error) {

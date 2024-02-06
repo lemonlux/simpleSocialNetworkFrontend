@@ -11,19 +11,21 @@ const PostPopupStyled = styled.div`
 ; /* Adjust the alpha value for transparency */
   z-index: 999;
 
+  & p {
+    margin: 0;
+  }
+
   #uniqueDiv {
-    width: 600px;
-    height: 400px;
+    width: 650px;
+    height: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     position: absolute;
-    height: 60%;
-    top: 50%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* Additional styling for the content inside the overlay */
     padding: 20px;
     background-color: black;
     border-radius: 5px;
@@ -41,17 +43,19 @@ const PostPopupStyled = styled.div`
     width: 70%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: end;
     justify-content: center;
     border-radius: 10px;
+    height: 80%;
   }
 
   textarea {
-    color: black;
-    font-size: 28px;
+    background-color: ${({theme})=> theme.palette.background.main};
     font-family: Onest;
+    font-size: 20px;
     width: 100%;
-    height: 60%;
+    border: none;
+    height: 100%;
     border: black 2px solid;
     border-radius: 10px;
   }

@@ -181,10 +181,12 @@ export const User = () => {
           </FlexDir>
 </>)}
 
-{feed == "posts" && (res?.data?.privacy == "public" || isOwnUser) && res?.data?.myPosts?.slice(0,2).map((item) => (
+{feed == "posts" && (res?.data?.privacy == "public" || isOwnUser) && res?.data?.myPosts?.toReversed().slice(0,2).map((item) => (
           <>
             <IndividualPost
               key={item._id}
+              likes={item.likes.length}
+              comments={item.comments.length}
               username={username}
               img={res?.data?.image}
               text={item.text}
@@ -198,10 +200,12 @@ export const User = () => {
             <DivLine variant="H" />
           </>
         ))}
-        {feed == "likes" && (res?.data?.privacy == "public" || isOwnUser)&&  res?.data?.likedPosts?.slice(0,2).map((item) => (
+        {feed == "likes" && (res?.data?.privacy == "public" || isOwnUser)&&  res?.data?.likedPosts?.toReversed().slice(0,2).map((item) => (
           <>
             <IndividualPost
               key={item._id}
+              likes={item.likes.length}
+              comments={item.comments.length}
               username={username}
               img={res?.data?.image}
               text={item.text}

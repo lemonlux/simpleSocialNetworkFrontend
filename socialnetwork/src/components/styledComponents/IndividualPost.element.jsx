@@ -11,6 +11,10 @@ const IndividualPostStyled = styled.div`
   height: auto;
   cursor: pointer;
 
+  & span{
+    color: ${({theme})=> theme.palette.color.diminishing}
+  }
+
   & p {
     font-weight: 300;
     margin: 0;
