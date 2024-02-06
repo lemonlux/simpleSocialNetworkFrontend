@@ -1,7 +1,7 @@
-import { useNavigate, useParams } from "react-router-dom"
+import { NavLink, useNavigate, useParams } from "react-router-dom"
 import { addFavPost, addFollowing, addSavedPost, getUserById, getUserByUsernamePopulated } from "../services/user.service";
 import { useEffect, useState } from "react";
-import { ButtonPrimary, DivLine, FlexDir, H1Form, H2Form, H3Feed, IndividualPostElement, Loading, NavBar, Span } from "../components";
+import { ButtonPrimary, DivLine, FlexDir, H1Form, H2Form, H3Feed, IndividualPostElement, Loading, NavBar, Span, TitleIcon } from "../components";
 import { useAuth } from "../context/authContext";
 import { UserElement } from "../components/styledComponents/User.element";
 import { IndividualPost } from "../components/IndividualPost";
@@ -109,8 +109,14 @@ export const User = () => {
           width={isMobile ? "40%" : "60%"}
           direction="column"
           height="100%"
+          alignItems={"start"}
         >
-        
+         { isMobile && isOwnUser && <NavLink className="navLink" to="/log/login">
+      <TitleIcon >
+        {" "}
+        <i className="bi bi-box-arrow-right"></i>
+      </TitleIcon>
+      </NavLink>}
         </FlexDir>
         {!isOwnUser ? (
         <ButtonPrimary

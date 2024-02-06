@@ -12,6 +12,7 @@ z-index: 100;
 display: flex;
 flex-direction: row;
 justify-content: space-around;
+background-color: black;
 
 `
 

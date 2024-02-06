@@ -16,6 +16,7 @@ import { getUserById, updateUser } from "../services/user.service";
 import { useErrorUpdate } from "../hooks/useErrorUpdate";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/authContext";
+import { useThemeApp } from "../context/themeContext";
 
 export const Settings = () => {
   //! ---- states
@@ -26,6 +27,7 @@ export const Settings = () => {
   const [ok, setOk] = useState(false);
 
   //! -- hooks
+  const { isMobile } = useThemeApp()
   const { user, logout } = useAuth();
   const { handleSubmit, register } = useForm();
   const [gender, setGender] = useState(user?.gender);
@@ -82,7 +84,7 @@ export const Settings = () => {
         <>
           <Form width="100%" onSubmit={handleSubmit(editProfileFormSubmit)}>
             <h2>Edit profile </h2>
-            <FlexDir direction="column" width="100%" gap="12px">
+            <FlexDir direction="column" width="100%" gap={isMobile? "4px" : "12px"}>
               <img
                 style={{
                   width: "100px",

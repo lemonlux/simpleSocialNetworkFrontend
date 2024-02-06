@@ -1,0 +1,17 @@
+{
+    "routes": [
+        { "src": "/", "dest": "/" },
+        { "src": "/feed", "dest": "/" },
+        { "src": "/feed/:id", "dest": "/" },
+        { "src": "/settings", "dest": "/" },
+        { "src": "/search", "dest": "/" },
+        { "src": "/user/:username", "dest": "/" },
+        { "src": "/bookmarks", "dest": "/" },
+        { "src": "/log", "dest": "/" },
+        { "src": "/log/signup", "dest": "/" },
+        { "src": "/log/login", "dest": "/" },
+        { "src": "/log/start", "dest": "/" },
+        { "src": "/[^.]+", "dest": "/", "status": 200 }
+
+    ]
+  }

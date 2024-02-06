@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
 import { FlexDir, H1Form, H2Form, SpanLink } from "../components";
+import { useThemeApp } from "../context/themeContext";
 
 export const StartBrowsing = () => {
 
-
+  const { isMobile } = useThemeApp()
   return (
     <FlexDir
       direction={"column"}
       gap={"2px"}
-      width={"40vw"}
+      width={isMobile ? "80vw" :"40vw" } 
       height={"100vh"}
       alignItems="start"
     >

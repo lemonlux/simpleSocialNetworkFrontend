@@ -19,6 +19,7 @@ import { Comment } from "../components/styledComponents/Comment";
 import { useForm } from "react-hook-form";
 import { createComment } from "../services/comment.service";
 import Swal from "sweetalert2/dist/sweetalert2.all.js";
+import { useThemeApp } from "../context/themeContext";
 
 export const Post = () => {
   //!-- states
@@ -41,6 +42,7 @@ export const Post = () => {
   const [sendComment, setSendComment] = useState(false);
   const [isLoadingComment, setIsLoadingComment] = useState(true);
 
+  const { isMobile } = useThemeApp()
   const { id } = useParams();
   const { user } = useAuth();
   const { register, handleSubmit } = useForm();
@@ -213,7 +215,7 @@ export const Post = () => {
           </FlexDir>
         </Comment>
         <DivLine variant="H" />
-        {res?.comments?.toReversed().slice(0, 3).map((item) => (
+        {res?.comments?.toReversed().slice(0,2).map((item) => (
           <>
             <IndividualPost
               key={item._id}

@@ -12,6 +12,7 @@ import { useErrorRegister } from "../hooks/useErrorRegister";
 import * as React from 'react';
 import { PLink, ButtonPrimary, FlexDir, Form, H1Form, H2Form, LabelAndInput, RadioInput, Small } from "../components";
 import { useAutoLogin } from "../hooks/useAutoLogin";
+import { useThemeApp } from "../context/themeContext";
 
 
 
@@ -24,9 +25,11 @@ export const Register = () => {
   const [sent, setSent] = useState(false);
   const [okRegister, setRegisterOk] = useState(false);
 
+
   //!-- hooks
   const { allUser, bridgeData, setIsDeletedUser } = useAuth();
   const { register, handleSubmit } = useForm();
+  const { isMobile } = useThemeApp()
 
   //!-- fetch
 
@@ -78,14 +81,14 @@ useEffect(() => {
 
 
     <Form
-      width={"40vw"}
+    width={isMobile ? "100vw" :"40vw" } 
       height={"100vh"}
       onSubmit={handleSubmit(formSubmit)}
     >
       <FlexDir direction={"column"} gap={"2px"} width="100%">
       <FlexDir direction={"column"} gap={"2px"} width="100%" alignItems="start">
-        <H1Form margin={"8px 0 0 0"}>Happening now</H1Form>
-    <H2Form >Join today</H2Form>
+      {!isMobile &&<H1Form margin={"8px 0 0 0"} >Happening now</H1Form>}
+        <H2Form fontSize={isMobile && "50px"}>Join today</H2Form>
    </FlexDir>
 
         <LabelAndInput>

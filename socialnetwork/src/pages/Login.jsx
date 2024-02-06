@@ -13,6 +13,7 @@ import {
   H2Form,
   LabelAndInput,
 } from "../components";
+import { useThemeApp } from "../context/themeContext";
 
 export const Login = () => {
   //! -- states
@@ -23,6 +24,7 @@ export const Login = () => {
   //!-- hooks
   const { register, handleSubmit } = useForm();
   const { login, setUser } = useAuth();
+  const { isMobile } = useThemeApp()
 
   //!-- fetch
   const formSubmit = async (formData) => {
@@ -48,7 +50,7 @@ export const Login = () => {
 
   return (
     <>
-      <Form width={"40vw"} height={"100vh"} onSubmit={handleSubmit(formSubmit)}>
+      <Form width={isMobile ? "100vw" :"40vw" }  height={"100vh"} onSubmit={handleSubmit(formSubmit)}>
         <FlexDir direction={"column"} gap={"16px"} width="100%">
           <FlexDir
             direction={"column"}
