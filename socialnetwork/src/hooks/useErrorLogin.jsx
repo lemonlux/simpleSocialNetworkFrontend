@@ -39,15 +39,6 @@ export const useErrorLogin = (res, setRes, login, setSuccessfulLogin) => {
       }
     
     
-      if (res?.response?.data?.includes("Passwords don't match")) {
-        Swal.fire({
-          icon: "error",
-          title: "Wrong password",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        setRes(() => ({})); 
-      }
     
       if (res?.response?.status == 500) {
         Swal.fire({

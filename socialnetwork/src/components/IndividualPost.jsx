@@ -17,16 +17,15 @@ export const IndividualPost = ({
   variant,
   ownUser,
   deletePost,
-  privacy
+  privacy,
 }) => {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
   const isLiked = userLikedPosts?.includes(id);
   const isSaved = userSavedPosts?.includes(id);
-  const isOwner = ownUser?.myPosts?.includes(id)
+  const isOwner = ownUser?.myPosts?.includes(id);
 
   return (
     <>
-    
       <IndividualPostElement>
         <FlexDir
           alignItems="start"
@@ -53,7 +52,14 @@ export const IndividualPost = ({
             justifyContent="start"
             height="40px"
           >
-            <h4  onClick={()=>{navigate(`/user/${username}`)}}>@{username}</h4>{ privacy == "private" && <i className="bi bi-lock-fill"></i>}
+            <h4
+              onClick={() => {
+                navigate(`/user/${username}`);
+              }}
+            >
+              @{username}
+            </h4>
+            {privacy == "private" && <i className="bi bi-lock-fill"></i>}
           </FlexDir>
           <FlexDir
             gap="0"
@@ -62,39 +68,47 @@ export const IndividualPost = ({
             justifyContent="start"
             height="auto"
             minHeight="40px"
-            onClick={()=>{variant != "comment" && navigate(`/feed/${id}`)}}
+            onClick={() => {
+              variant != "comment" && navigate(`/feed/${id}`);
+            }}
           >
             <p>{text}</p>
-            
           </FlexDir>
           {variant != "comment" && (
-
-          
-          <FlexDir
-            gap="0"
-            margin="0"
-            width="100%"
-            justifyContent="space-around"
-            height="40px"
-          >
-            <FlexDir gap="8px">
-            <i className="bi bi-chat" onClick={()=>{variant != "comment" && navigate(`/feed/${id}`)}}></i>
-            <span>{comments}</span></FlexDir>
-            <FlexDir gap="8px">
-            <i
-              className={isLiked ? "bi bi-heart-fill" : "bi bi-heart"}
-              onClick={() => addToLikes(id)}
-            ></i><span>{likes}</span></FlexDir>
-            <i
-              className={isSaved ? "bi bi-bookmark-fill" : "bi bi-bookmark"}
-              onClick={() => addToSaved(id)}
-            ></i>
-            {isOwner && <i className="bi bi-trash3" onClick={()=> deletePost(id)}></i>}
-          </FlexDir>
+            <FlexDir
+              gap="0"
+              margin="0"
+              width="100%"
+              justifyContent="space-around"
+              height="40px"
+            >
+              <FlexDir gap="8px">
+                <i
+                  className="bi bi-chat"
+                  onClick={() => {
+                    variant != "comment" && navigate(`/feed/${id}`);
+                  }}
+                ></i>
+                <span>{comments}</span>
+              </FlexDir>
+              <FlexDir gap="8px">
+                <i
+                  className={isLiked ? "bi bi-heart-fill" : "bi bi-heart"}
+                  onClick={() => addToLikes(id)}
+                ></i>
+                <span>{likes}</span>
+              </FlexDir>
+              <i
+                className={isSaved ? "bi bi-bookmark-fill" : "bi bi-bookmark"}
+                onClick={() => addToSaved(id)}
+              ></i>
+              {isOwner && (
+                <i className="bi bi-trash3" onClick={() => deletePost(id)}></i>
+              )}
+            </FlexDir>
           )}
         </FlexDir>
       </IndividualPostElement>
-      
     </>
   );
 };

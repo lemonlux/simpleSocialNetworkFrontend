@@ -25,13 +25,12 @@ Extra Points (Optional):
 1. Los usuarios pueden subir y editar fotos de perfil.
 2. Existe una paginación en el feed.
 3. Los posts pueden ser borrados por el usuario.
+4. Diseño responsive para dispositivos móviles.
 
-
-5. Implement direct messaging functionality between users.
-6. Apply responsive design for mobile devices.
 
 Además de los requerimientos de la prueba técnica, también existen las funcionalidades de :
 
-- Búsqueda de posts
+- Búsqueda de posts por palabras/letras
 - Añadir a "bookmarks"
 - Ver cada post de manera individual y los comentarios asociados
+- Ver los posts y likes de cada usuario (sólo si es público), y ver tus propios bookmarks
